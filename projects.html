@@ -24,6 +24,11 @@
         a { color: var(--accent); }
         .button { display: inline-block; background: var(--accent); color: white; padding: .65rem .95rem; border-radius: 7px; text-decoration: none; margin-top: .4rem; }
         .project-image { display: block; max-width: 100%; height: auto; }
+        .table-wrap { max-width: 100%; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        caption { font-weight: bold; text-align: left; padding: .6rem 0; }
+        th, td { padding: .6rem; border: 1px solid #cbd5e1; text-align: left; }
+        thead, tfoot { background: #eaf0fb; }
         footer { padding: 1rem; color: var(--muted); text-align: center; }
     </style>
 </head>
@@ -44,6 +49,46 @@
             <h1>My Projects</h1>
             <p>These projects reflect my interest in using software to solve practical problems for communities, individuals, and local businesses.</p>
         </section>
+
+        <div class="table-wrap">
+            <table border="1" cellpadding="8" cellspacing="0">
+                <caption>Project Summary</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Project</th>
+                        <th scope="col">Language</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">FixMyArea</th>
+                        <td>JavaScript</td>
+                        <td>Update year</td>
+                        <td><a href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">MediNear</th>
+                        <td>JavaScript</td>
+                        <td>Update year</td>
+                        <td><a href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Haroni Building eCommerce</th>
+                        <td>JavaScript</td>
+                        <td>Update year</td>
+                        <td><a href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3" scope="row">Total projects</th>
+                        <th>3</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
 
         <article>
             <h2>1. FixMyArea</h2>
