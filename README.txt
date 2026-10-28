@@ -1,3 +1,5 @@
+Visit the live website: [Amanuel Alemayehu Portfolio](https://aman6815.github.io/amanuel_portfolio_IP/)
+
 # Amanuel Alemayehu — Portfolio
 
 A personal portfolio website for Amanuel Alemayehu, a Software Engineering student at Addis Ababa Science and Technology University (AASTU). It showcases my background, technical skills, academic record, and software projects.
@@ -5,7 +7,6 @@ A personal portfolio website for Amanuel Alemayehu, a Software Engineering stude
 ## Live Portfolio
 
 
-Visit the live website: [Amanuel Alemayehu Portfolio](https://aman6815.github.io/amanuel_portfolio_IP/)
 
 ## Featured Projects
 
