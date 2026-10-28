@@ -1,44 +1,40 @@
-LAB 5 PORTFOLIO FILES
+# Amanuel Alemayehu — Portfolio
 
-Keep index.html, projects.html, images/, and files/ together.
-All images currently included are placeholders, so the pages work immediately.
-Replace these files with your real images while keeping exactly the same filenames:
-- images/profile.jpg — your portrait
-- images/project-fixmyarea.png — FixMyArea screenshot
-- images/project-medinear.png — MediNear screenshot
-- images/project-ecommerce.png — Haroni Building e-commerce screenshot
-- images/connect-banner.png — 600x200 banner; GitHub left, LinkedIn center, Email right
-- images/favicon.png — 32x32 browser tab icon
+A personal portfolio website for Amanuel Alemayehu, a Software Engineering student at Addis Ababa Science and Technology University (AASTU). It showcases my background, technical skills, academic record, and software projects.
 
-Put your CV at files/cv.pdf for the existing download link to work.
-The image-map clickable areas match the included connect-banner.png:
-GitHub rectangle coords="20,40,180,160"
-LinkedIn circle coords="300,100,70"
-Email rectangle coords="420,40,580,160"
-If you change the banner layout, update those coordinates in index.html too.
+## Live Portfolio
 
-When finished:
-git add index.html projects.html images/
-git commit -m "Complete Lab 5: Images, image map, and favicon"
-git push
+Visit the live website: [Amanuel Alemayehu Portfolio](https://aman6815.github.io/amanuel_portfolio_IP/)
 
+## Featured Projects
 
-LAB 6 — LISTS
-This version builds on the uploaded Lab 5 commit and preserves its files and layout.
-Lab 6 additions:
-- index.html: nested unordered lists for grouped skills, an ordered learning roadmap, and a description list for tools.
-- projects.html: an ordered “How I Built It” list and an unordered “Technologies Used” list for each project.
+- **FixMyArea** — A platform for reporting community problems such as potholes and broken streetlights.
+- **MediNear** — A project designed to help users find nearby pharmacies and medicine availability.
+- **Haroni Building eCommerce** — An online store project for local vendors in Wolaita Sodo.
 
-IMPORTANT:
-The project-specific technology stacks were not specified in the Lab 5 files, so the Technologies Used lists contain reminders. Replace those reminder items with the technologies actually used in each project before submitting.
+## Technologies
 
-To commit the Lab 6 changes in your existing repository:
-git add index.html projects.html README.txt
-git commit -m "Complete Lab 6: HTML lists"
-git push
+- HTML5, CSS, JavaScript
+- Git and GitHub
+- Additional technologies used in my featured projects
 
+## Repository Structure
 
-Lab 6 technology-list update:
-- Replaced the technology placeholders in projects.html with project stacks based on the available project repositories/source files.
-- MediNear verified from its uploaded source ZIP: HTML, CSS, JavaScript; Node.js, Express.js, PostgreSQL via pg; bcrypt, jsonwebtoken, cors, dotenv; nodemon as a development dependency.
-- FixMyArea and Haroni Building stack lists are based on the repository details previously reviewed. Review them against the current repository versions before final submission if those repositories have changed.
+- `index.html` — Homepage, introduction, skills, academic record, and contact details.
+- `projects.html` — Project descriptions and links.
+- `images/` — Profile photo and project images.
+- `files/cv.pdf` — Downloadable CV.
+
+## Run Locally
+
+1. Clone or download this repository.
+2. Keep the HTML files, `images/`, and `files/` in the same root directory.
+3. Open `index.html` in your browser, or use the Live Server extension in VS Code.
+
+## Contact
+
+- GitHub: https://github.com/Aman6815
+- LinkedIn: https://www.linkedin.com/in/amanuel-alemayehu-516863446
+- Email: amanuelalemayehuseta@gmail.com
+
+© 2026 Amanuel Alemayehu
