@@ -21,3 +21,24 @@ When finished:
 git add index.html projects.html images/
 git commit -m "Complete Lab 5: Images, image map, and favicon"
 git push
+
+
+LAB 6 — LISTS
+This version builds on the uploaded Lab 5 commit and preserves its files and layout.
+Lab 6 additions:
+- index.html: nested unordered lists for grouped skills, an ordered learning roadmap, and a description list for tools.
+- projects.html: an ordered “How I Built It” list and an unordered “Technologies Used” list for each project.
+
+IMPORTANT:
+The project-specific technology stacks were not specified in the Lab 5 files, so the Technologies Used lists contain reminders. Replace those reminder items with the technologies actually used in each project before submitting.
+
+To commit the Lab 6 changes in your existing repository:
+git add index.html projects.html README.txt
+git commit -m "Complete Lab 6: HTML lists"
+git push
+
+
+Lab 6 technology-list update:
+- Replaced the technology placeholders in projects.html with project stacks based on the available project repositories/source files.
+- MediNear verified from its uploaded source ZIP: HTML, CSS, JavaScript; Node.js, Express.js, PostgreSQL via pg; bcrypt, jsonwebtoken, cors, dotenv; nodemon as a development dependency.
+- FixMyArea and Haroni Building stack lists are based on the repository details previously reviewed. Review them against the current repository versions before final submission if those repositories have changed.
