@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amanuel Alemayehu | Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="description" content="Portfolio of Amanuel Alemayehu, a third-year Software Engineering student at AASTU.">
     <style>
         :root { color-scheme: light; --ink: #172033; --muted: #526078; --accent: #155eef; --bg: #f5f7fb; --card: #fff; }
@@ -25,6 +26,8 @@
         .button { display: inline-block; background: var(--accent); color: white; padding: .65rem .95rem; border-radius: 7px; text-decoration: none; margin: .25rem .35rem .25rem 0; }
         .button:hover { opacity: .9; }
         ul { padding-left: 1.3rem; }
+        .profile-photo { display: block; width: 200px; height: 200px; object-fit: cover; border-radius: 50%; }
+        .project-image, .connect-banner { max-width: 100%; height: auto; }
         footer { padding: 1rem; color: var(--muted); text-align: center; }
     </style>
 </head>
@@ -43,6 +46,9 @@
         <section id="home">
             <p class="muted">Software Engineering Student · AASTU</p>
             <h1>Hello, I'm Amanuel Alemayehu.</h1>
+            <img class="profile-photo" src="images/profile.jpg"
+                 alt="Portrait of Amanuel Alemayehu"
+                 title="Amanuel Alemayehu" width="200" height="200">
             <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
             <a class="button" href="projects.html">View My Projects</a>
             <a class="button" href="files/cv.pdf" download>Download My CV (PDF)</a>
@@ -68,11 +74,15 @@
 
         <section id="projects">
             <h2>Featured Projects</h2>
-            <ul>
-                <li><strong>FixMyArea:</strong> A project for residents to report community problems such as potholes and broken streetlights.</li>
-                <li><strong>MediNear:</strong> A project intended to help people find nearby pharmacies that have the medicine they need.</li>
-                <li><strong>eCommerce — Haroni Building:</strong> An online store concept that helps local vendors in Wolaita Sodo list products and reach customers.</li>
-            </ul>
+            <h3>FixMyArea</h3>
+            <img class="project-image" src="images/project-fixmyarea.png" alt="Placeholder screenshot for the FixMyArea community issue reporting project" width="400" height="250">
+            <p>A project for residents to report community problems such as potholes and broken streetlights.</p>
+            <h3>MediNear</h3>
+            <img class="project-image" src="images/project-medinear.png" alt="Placeholder screenshot for the MediNear pharmacy finder project" width="400" height="250">
+            <p>A project intended to help people find nearby pharmacies that have the medicine they need.</p>
+            <h3>eCommerce — Haroni Building</h3>
+            <img class="project-image" src="images/project-ecommerce.png" alt="Placeholder screenshot for the Haroni Building e-commerce project" width="400" height="250">
+            <p>An online store concept that helps local vendors in Wolaita Sodo list products and reach customers.</p>
             <a href="projects.html">See project details and GitHub repositories →</a>
         </section>
 
@@ -85,6 +95,21 @@
                 <a href="https://www.linkedin.com/in/amanuel-alemayehu-516863446" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
                 <a href="https://aman6815.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Live Portfolio</a>
             </p>
+            <h3>Connect with me</h3>
+            <img class="connect-banner" src="images/connect-banner.png"
+                 usemap="#connectmap"
+                 alt="Connect with me through GitHub on the left, LinkedIn in the center, or email on the right"
+                 width="600" height="200">
+            <map name="connectmap">
+                <area shape="rect" coords="20,40,180,160"
+                      href="https://github.com/Aman6815"
+                      alt="GitHub" target="_blank" rel="noopener noreferrer">
+                <area shape="circle" coords="300,100,70"
+                      href="https://www.linkedin.com/in/amanuel-alemayehu-516863446"
+                      alt="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <area shape="rect" coords="420,40,580,160"
+                      href="mailto:amanuelalemayehuseta@gmail.com"
+                      alt="Email Amanuel">
         </section>
     </main>
 
