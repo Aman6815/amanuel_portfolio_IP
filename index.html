@@ -4,7 +4,7 @@
      4 links, 5 images/image map/favicon, 6 lists, 7 tables,
      8 semantic structure and metadata, 9 contact form basics,
      10 input types, validation, GET vs POST, 11 audio/video/iframes,
-     12 details, dialog, meter and progress, 13 time, abbr and entities
+     12 details, dialog, meter and progress, 13 time, abbr and entities, 14 canvas
      ============================================================ -->
 <!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
@@ -31,6 +31,10 @@
          In the menu, href="#about" jumps to the element with id="about" on THIS page;
          href="projects.html" opens the second page (relative link). -->
     <header>
+        <!-- LOGO CANVAS (Lab 14). <canvas> is an empty drawing area; JavaScript draws on it (script at the bottom of the page).
+             Set the size with the width and height ATTRIBUTES (not CSS), or the drawing is stretched.
+             The text inside shows only if the browser cannot draw. -->
+        <canvas id="logo" width="120" height="120">Amanuel Alemayehu logo</canvas>
         <h1>Hello, I'm Amanuel Alemayehu.</h1>
         <!-- Profile photo (Lab 5): src = path relative to this file; alt = text for screen readers or when the image fails to load -->
         <img class="profile-photo" src="images/profile.jpg"
@@ -472,6 +476,9 @@
                 <label for="lvl-node">Node.js</label>
                 <meter id="lvl-node" value="0.5" min="0" max="1" low="0.3" high="0.7" optimum="1">50%</meter>
             </p>
+            <!-- SKILLS BAR CHART (Lab 14, "Your turn"): drawn by the script at the bottom of the page from the meter values above -->
+            <h3>Skill Levels Chart</h3>
+            <canvas id="skillsChart" width="300" height="150">Bar chart of my skill levels: HTML, Python, JavaScript and Node.js</canvas>
 
             <!-- Ordered list (<ol>, numbers) because the order of steps matters -->
             <h3>My Learning Roadmap</h3>
@@ -520,7 +527,7 @@
             </article>
             <article>
             <h3>Temadeg</h3>
-            <img class="project-image" src="images/project-temadeg.png" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
+            <img class="project-image" src="images/project-temadeg.PNG" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
             <p>A tutoring platform that connects families with verified tutors.</p>
             </article>
             <article>
@@ -685,5 +692,61 @@ int main() {
         <p>&copy; 2026 Amanuel Alemayehu. All rights reserved. Built with HTML.</p>
         <p>Last updated: <time datetime="2026-11-04">4 November 2026</time></p>
     </footer>
+
+    <!-- DRAWING CODE (Lab 14). It must come AFTER the <canvas> elements, or getElementById finds nothing (check F12 -> Console).
+         On a canvas, (0, 0) is the TOP-LEFT corner: x grows to the right and y grows DOWNWARD. -->
+    <script>
+        // ---------- 1. Logo: blue square, white circle, initials ----------
+        const canvas = document.getElementById('logo');
+        const ctx = canvas.getContext('2d');   // the "pen" we draw with
+
+        // Blue square background: x, y, width, height
+        ctx.fillStyle = "#1f5fa8";
+        ctx.fillRect(0, 0, 120, 120);
+
+        // White circle: centre x, centre y, radius, start angle, end angle
+        ctx.beginPath();                        // start a NEW shape, or it joins the previous one
+        ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        // Initials in the middle (set fillStyle BEFORE drawing the text)
+        ctx.fillStyle = "#1f5fa8";
+        ctx.font = "bold 36px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("AA", 60, 62);
+
+        // ---------- 2. Bar chart of the skill levels ----------
+        // New names (chart, chartCtx): a const can only be declared once per page.
+        const chart = document.getElementById('skillsChart');
+        const chartCtx = chart.getContext('2d');
+
+        // Each bar reads its value (0 to 1) from the matching <meter>, so the chart follows your honest values.
+        const skills = [
+            { name: "HTML",    meter: "lvl-html" },
+            { name: "Python",  meter: "lvl-python" },
+            { name: "JS",      meter: "lvl-js" },
+            { name: "Node.js", meter: "lvl-node" }
+        ];
+
+        // The bars stand on the line y = 130. Because y grows downward, a bar starts at y = 130 - height.
+        chartCtx.fillStyle = "black";
+        chartCtx.fillRect(10, 130, 280, 1);     // the baseline
+
+        chartCtx.font = "12px Arial";
+        chartCtx.textAlign = "center";
+        for (let i = 0; i < skills.length; i++) {
+            const value = document.getElementById(skills[i].meter).value;   // e.g. 0.8
+            const height = value * 120;          // 80% of 120 px = 96 px
+            const x = 20 + i * 70;               // bars are 50 px wide, 70 px apart
+
+            chartCtx.fillStyle = "#1f5fa8";
+            chartCtx.fillRect(x, 130 - height, 50, height);
+
+            chartCtx.fillStyle = "black";        // set the colour before the text
+            chartCtx.fillText(skills[i].name, x + 25, 145);
+        }
+    </script>
 </body>
 </html>
