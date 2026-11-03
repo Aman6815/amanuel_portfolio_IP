@@ -3,7 +3,8 @@
      Labs covered: 1 structure, 2 headings/hr/br, 3 text formatting,
      4 links, 5 images/image map/favicon, 6 lists, 7 tables,
      8 semantic structure and metadata, 9 contact form basics,
-     10 input types, validation, GET vs POST, 11 audio/video/iframes
+     10 input types, validation, GET vs POST, 11 audio/video/iframes,
+     12 details, dialog, meter and progress, 13 time, abbr and entities
      ============================================================ -->
 <!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
@@ -35,11 +36,23 @@
         <img class="profile-photo" src="images/profile.jpg"
              alt="Portrait of Amanuel Alemayehu"
              title="Amanuel Alemayehu" width="200" height="200">
-        <p>Software Engineering student · AASTU</p>
+        <!-- <abbr title="..."> shows the full name as a tooltip when the visitor hovers over the short form (Lab 13, Part B) -->
+        <p>Software Engineering student · <abbr title="Addis Ababa Science and Technology University">AASTU</abbr></p>
+        <!-- HIRE ME DIALOG (Lab 12, Part B).
+             type="button" = does nothing by itself, so the JavaScript in onclick decides what happens.
+             showModal() opens the dialog and blocks the page behind it (Esc also closes it); close() shuts it.
+             The id inside getElementById('...') must match the dialog's id exactly. -->
+        <button type="button" onclick="document.getElementById('hireDialog').showModal()">Hire me</button>
+        <dialog id="hireDialog">
+            <h2>Open to internships and freelance work</h2>
+            <p>I am open to internships and freelance web projects.</p>
+            <p><a href="#contact" onclick="document.getElementById('hireDialog').close()">Send me a message</a> or <a href="files/cv.pdf" download>download my <abbr title="Curriculum Vitae">CV</abbr></a>.</p>
+            <button type="button" onclick="document.getElementById('hireDialog').close()">Close</button>
+        </dialog>
         <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
         <a class="button" href="projects.html">View My Projects</a>
         <!-- "download" makes the browser save the PDF instead of opening it (Lab 4) -->
-        <a class="button" href="files/cv.pdf" download>Download My CV (PDF)</a>
+        <a class="button" href="files/cv.pdf" download>Download My <abbr title="Curriculum Vitae">CV</abbr> (PDF)</a>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a> |
             <a href="#about">About</a> |
@@ -60,8 +73,12 @@
             <p>I am a 3<sup>rd</sup> year <strong>Software Engineering</strong> student. I <em>really</em> enjoy turning everyday problems into useful software, and my current goal is to <mark>become a full-stack web developer</mark>.</p>
             <p>My project interests include community issue reporting, helping people locate medicine, and creating online tools for local businesses. I am continuing to develop my programming, web development, and problem-solving skills.</p>
             <p>Languages I have used: <b>JavaScript</b>, <b>Python</b>, <b>Java</b> and <i>C++</i>.</p>
+            <!-- HTML ENTITIES (Lab 13, Part C): &lt; and &gt; display the < and > symbols as text, &amp; displays &.
+                 Typing <main> without entities would silently create a second <main> element. Always end an entity with ; -->
+            <p>My favourite tag is &lt;main&gt;, because it tells the browser
+               where the important content is &amp; helps screen readers.</p>
             <p><strong>Location:</strong> Addis Ababa, Ethiopia</p>
-            <p><strong>Education:</strong> Third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU)</p>
+            <p><strong>Education:</strong> Third-year Software Engineering student at Addis Ababa Science and Technology University (<abbr title="Addis Ababa Science and Technology University">AASTU</abbr>)</p>
             <!-- AUDIO (Lab 11, Part A). controls = show play/pause/volume buttons.
                  <source> names the file and its type; the text inside is shown only if the browser cannot play audio.
                  Do NOT add autoplay or loop: browsers block autoplay with sound, and looping sound annoys visitors. -->
@@ -94,8 +111,16 @@
         <!-- SECTION 4: Education with the Academic Record table (Lab 7) -->
         <section id="education">
             <h2>Education</h2>
-            <p><strong>Addis Ababa Science and Technology University (AASTU)</strong><br>
-               BSc in Software Engineering · Third year</p>
+            <!-- <time datetime="..."> gives a machine-readable date (year-month-day order) next to the human-readable text (Lab 13, Part A).
+                 TO DO: confirm the year (and month, e.g. datetime="2024-09") you really started. -->
+            <p><strong>Addis Ababa Science and Technology University (<abbr title="Addis Ababa Science and Technology University">AASTU</abbr>)</strong><br>
+               BSc in Software Engineering · Third year · <time datetime="2024">2024</time> – present</p>
+            <!-- PROGRESS BAR (Lab 12, Part D). value out of max: 4 of 10 semesters finished = 40 out of 100.
+                 Update the value as new semesters are completed. -->
+            <p>
+                <label for="degree">Degree progress:</label>
+                <progress id="degree" value="40" max="100">40%</progress> 40%
+            </p>
             <p class="muted">The completed semesters below are transcribed from the four grade reports provided. Semesters V–X are reserved for future updates; no future grades have been entered.</p>
             <!-- table-wrap lets the wide table scroll sideways on small screens -->
             <div class="table-wrap">
@@ -402,7 +427,7 @@
                 </li>
                 <li><strong>Web Development</strong>
                     <ul>
-                        <li>HTML</li>
+                        <li><abbr title="HyperText Markup Language">HTML</abbr></li>
                         <li>CSS</li>
                         <li>React</li>
                         <li>Node.js and Express.js</li>
@@ -424,6 +449,29 @@
                     </ul>
                 </li>
             </ul>
+
+            <!-- SKILL LEVELS (Lab 12, Part C). <meter> = a measurement on a known scale (like a fuel gauge); <progress> = how far a task has got.
+                 value = the level, min/max = the scale (0 to 1 here, so 0.8 = 80%).
+                 low/high/optimum tell the browser which values are poor or good, so the colour can change.
+                 TO DO: change every value below to your own honest level. -->
+            <h3>Skill Levels</h3>
+            <p>
+                <label for="lvl-html">HTML</label>
+                <meter id="lvl-html" value="0.8" min="0" max="1">80%</meter>
+            </p>
+            <p>
+                <label for="lvl-python">Python</label>
+                <meter id="lvl-python" value="0.7" min="0" max="1">70%</meter>
+            </p>
+            <p>
+                <label for="lvl-js">JavaScript</label>
+                <meter id="lvl-js" value="0.6" min="0" max="1" low="0.3" high="0.7" optimum="1">60%</meter>
+            </p>
+            <!-- "Your turn": a fourth meter for a skill of your choice -->
+            <p>
+                <label for="lvl-node">Node.js</label>
+                <meter id="lvl-node" value="0.5" min="0" max="1" low="0.3" high="0.7" optimum="1">50%</meter>
+            </p>
 
             <!-- Ordered list (<ol>, numbers) because the order of steps matters -->
             <h3>My Learning Roadmap</h3>
@@ -505,7 +553,7 @@ int main() {
             <!-- mailto: opens the visitor's email app; tel: starts a phone call; https:// = absolute link to another website;
                  target="_blank" opens a new tab, rel="noopener noreferrer" keeps that tab safe -->
             <p>Email: <a href="mailto:amanuelalemayehuseta@gmail.com">amanuelalemayehuseta@gmail.com</a></p>
-            <p>Phone: <a href="tel:+251968157594">+251 968 157 594</a></p>
+            <p>Phone: <a href="tel:+251968157594">+251&nbsp;968&nbsp;157&nbsp;594</a></p>
             <p>
                 <a href="https://github.com/Aman6815" target="_blank" rel="noopener noreferrer">GitHub</a> ·
                 <a href="https://www.linkedin.com/in/amanuel-alemayehu-516863446" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
@@ -633,7 +681,9 @@ int main() {
 
     <!-- FOOTER: copyright line -->
     <footer>
-        <p>© 2026 Amanuel Alemayehu. Built with HTML.</p>
+        <!-- &copy; is the entity for the copyright symbol; &nbsp; would be a space that never breaks -->
+        <p>&copy; 2026 Amanuel Alemayehu. All rights reserved. Built with HTML.</p>
+        <p>Last updated: <time datetime="2026-11-04">4 November 2026</time></p>
     </footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!-- ============================================================
      projects.html — SECOND PAGE: details of each project
      Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table,
-     8 semantic structure and metadata, 11 video with captions
+     8 semantic structure and metadata, 11 video with captions, 12 details/summary, 13 time and entities
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -56,25 +56,25 @@
                     <tr>
                         <th scope="row">FixMyArea</th>
                         <td>JavaScript (Node.js)</td>
-                        <td>2026</td><!-- TODO: put the real year -->
+                        <td><time datetime="2026">2026</time></td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                     <tr>
                         <th scope="row">MediNear</th>
                         <td>JavaScript (Node.js)</td>
-                        <td>2026</td><!-- TODO: put the real year -->
+                        <td><time datetime="2026">2026</time></td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                     <tr>
                         <th scope="row">Haroni Building eCommerce</th>
                         <td>JavaScript (Node.js)</td>
-                        <td>2026</td><!-- TODO: put the real year -->
+                        <td><time datetime="2026">2026</time></td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                     <tr>
                         <th scope="row">Temadeg</th>
                         <td>TypeScript (Next.js)</td>
-                        <td>2026</td><!-- TODO: put the real year -->
+                        <td><time datetime="2026">2026</time></td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/temadeg" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                 </tbody>
@@ -92,14 +92,16 @@
         <article id="fixmyarea">
             <h2>1. FixMyArea</h2>
             <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
-            <!-- Ordered list: steps happen in order -->
-            <h3>How I Built It</h3>
-            <ol>
-                <li>Identify the community problem: reporting potholes and broken streetlights.</li>
-                <li>Plan the information users need to submit a report.</li>
-                <li>Design the reporting flow and the way submitted issues are displayed.</li>
-                <li>Test the user flow and refine the project based on feedback.</li>
-            </ol>
+            <!-- <details> = a section that opens and closes; <summary> = the clickable heading (Lab 12, Part A). Add the attribute open to start expanded. -->
+            <details>
+                <summary>How I built it</summary>
+                <ol>
+                    <li>Identify the community problem: reporting potholes and broken streetlights.</li>
+                    <li>Plan the information users need to submit a report.</li>
+                    <li>Design the reporting flow and the way submitted issues are displayed.</li>
+                    <li>Test the user flow and refine the project based on feedback.</li>
+                </ol>
+            </details>
             <!-- Unordered list: order does not matter -->
             <h3>Technologies Used</h3>
             <ul>
@@ -119,13 +121,15 @@
         <article id="medinear">
             <h2>2. MediNear</h2>
             <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
-            <h3>How I Built It</h3>
-            <ol>
-                <li>Identify the need to find nearby pharmacies with required medicine.</li>
-                <li>Plan how users search for medicine and view pharmacy information.</li>
-                <li>Design the pharmacy discovery and medicine availability experience.</li>
-                <li>Test search and discovery flows and improve the user experience.</li>
-            </ol>
+            <details>
+                <summary>How I built it</summary>
+                <ol>
+                    <li>Identify the need to find nearby pharmacies with required medicine.</li>
+                    <li>Plan how users search for medicine and view pharmacy information.</li>
+                    <li>Design the pharmacy discovery and medicine availability experience.</li>
+                    <li>Test search and discovery flows and improve the user experience.</li>
+                </ol>
+            </details>
             <h3>Technologies Used</h3>
             <ul>
                 <li>HTML5, CSS3, and vanilla JavaScript for the frontend.</li>
@@ -144,13 +148,15 @@
         <article id="ecommerce">
             <h2>3. eCommerce — Haroni Building</h2>
             <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
-            <h3>How I Built It</h3>
-            <ol>
-                <li>Identify the needs of local vendors who want to list products online.</li>
-                <li>Plan the product listing and customer browsing experience.</li>
-                <li>Build the relevant pages and shopping workflow for the store.</li>
-                <li>Test the main user flows and refine the store experience.</li>
-            </ol>
+            <details>
+                <summary>How I built it</summary>
+                <ol>
+                    <li>Identify the needs of local vendors who want to list products online.</li>
+                    <li>Plan the product listing and customer browsing experience.</li>
+                    <li>Build the relevant pages and shopping workflow for the store.</li>
+                    <li>Test the main user flows and refine the store experience.</li>
+                </ol>
+            </details>
             <h3>Technologies Used</h3>
             <ul>
                 <li>HTML5, CSS3, and JavaScript for the frontend.</li>
@@ -169,13 +175,15 @@
         <article id="temadeg">
             <h2>4. Temadeg</h2>
             <img class="project-image" src="images/project-temadeg.png" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
-            <h3>How I Built It</h3>
-            <ol>
-                <li>Identify the need: families want trusted tutors from KG to Grade 12, and tutors need a fair way to get students.</li>
-                <li>Build a six-step tutor application with private document upload, then verify each tutor.</li>
-                <li>Let families add children, browse verified tutors and send requests, and let the admin match each request with a tutor.</li>
-                <li>Add monthly billing with an 80/20 tutor–commission split, payment proof upload and payout records.</li>
-            </ol>
+            <details>
+                <summary>How I built it</summary>
+                <ol>
+                    <li>Identify the need: families want trusted tutors from KG to Grade 12, and tutors need a fair way to get students.</li>
+                    <li>Build a six-step tutor application with private document upload, then verify each tutor.</li>
+                    <li>Let families add children, browse verified tutors and send requests, and let the admin match each request with a tutor.</li>
+                    <li>Add monthly billing with an 80/20 tutor–commission split, payment proof upload and payout records.</li>
+                </ol>
+            </details>
             <h3>Technologies Used</h3>
             <ul>
                 <li>Next.js (App Router) with TypeScript for the web application.</li>
@@ -221,7 +229,7 @@
     </main>
 
     <footer>
-        <p>© 2026 Amanuel Alemayehu</p>
+        <p>&copy; 2026 Amanuel Alemayehu. All rights reserved.</p>
     </footer>
 </body>
 </html>
