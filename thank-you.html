@@ -1,6 +1,6 @@
 <!-- ============================================================
      thank-you.html — page that opens after the contact form is sent (Lab 9)
-     Labs covered: 8 semantic structure and metadata, 9 contact form basics
+     Labs covered: 8 semantic structure and metadata, 9 contact form basics, 10 POST
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +44,8 @@
         <section class="message">
             <h1>Thank you!</h1>
             <p>Your message has been sent. I will reply within two days.</p>
-            <!-- With method="get" the form data travels in the URL, so it can be seen in the address bar -->
-            <p>Look at the address bar: the data you typed is in the URL.</p>
+            <!-- Lab 10: the form now uses method="post", so the data travels inside the request, not in the URL -->
+            <p>Your message was sent with POST, so it is not shown in the URL.</p>
             <p><a href="index.html">← Back to Home</a></p>
         </section>
     </main>

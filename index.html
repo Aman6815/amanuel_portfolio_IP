@@ -2,7 +2,8 @@
      index.html — HOME PAGE of Amanuel Alemayehu's portfolio
      Labs covered: 1 structure, 2 headings/hr/br, 3 text formatting,
      4 links, 5 images/image map/favicon, 6 lists, 7 tables,
-     8 semantic structure and metadata, 9 contact form basics
+     8 semantic structure and metadata, 9 contact form basics,
+     10 input types, validation, GET vs POST
      ============================================================ -->
 <!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
@@ -55,11 +56,6 @@
         mark { background: #fff3a3; padding: 0 .2rem; }
         blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid var(--accent); background: #f3f6fd; }
         pre { background: #10213f; color: #fff; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-        fieldset { margin: 1rem 0; padding: .8rem 1rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; }
-        legend { font-weight: bold; padding: 0 .4rem; }
-        input[type="text"], input[type="email"], select, textarea { max-width: 100%; padding: .35rem; }
-        button { padding: .55rem .95rem; border: 0; border-radius: 7px; background: var(--accent); color: white; font-size: 1rem; cursor: pointer; }
-        button[type="reset"] { background: #526078; }
         footer { padding: 1rem; color: var(--muted); text-align: center; }
     </style>
 </head>
@@ -553,28 +549,70 @@ int main() {
                       alt="Email Amanuel">
             </map>
 
-            <!-- CONTACT FORM (Lab 9). action = which page receives the data; method = how it is sent.
-                 GET puts the data in the address bar (Lab 10 explains GET vs POST).
-                 The name="..." of each field becomes the KEY in the URL; what the visitor types becomes the VALUE. -->
+            <!-- CONTACT FORM (Lab 9 + 10). action = which page receives the data; method = how it is sent.
+                 Lab 10: method="post" keeps the message out of the address bar (GET would put it in the URL).
+                 enctype="multipart/form-data" is needed so a chosen file is sent with its real contents, not just its name.
+                 The name="..." of each field is the KEY that is sent; what the visitor types is the VALUE. -->
             <h3>Send me a message</h3>
-            <form action="thank-you.html" method="get">
+            <form action="thank-you.html" method="post" enctype="multipart/form-data">
                 <!-- <fieldset> groups related fields; <legend> is the group's title -->
                 <fieldset>
                     <legend>Your Details</legend>
                     <!-- <label for="fullname"> is linked to the input whose id="fullname":
                          clicking the label puts the cursor in the box, and screen readers read it aloud -->
                     <label for="fullname">Full name:</label>
-                    <input type="text" id="fullname" name="fullname">
+                    <input type="text" id="fullname" name="fullname" required>
                     <br><br>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required>
+                </fieldset>
+
+                <!-- PROJECT DETAILS (Lab 10): one input type per purpose -->
+                <fieldset>
+                    <legend>Project Details</legend>
+                    <!-- type="text" + pattern: the value must match the format. 0[79] = starts with 07 or 09, [0-9]{8} = eight more digits.
+                         title = the hint shown in the browser's error message. Not required, so it may stay empty. -->
+                    <label for="phone">Phone (optional):</label>
+                    <input type="text" id="phone" name="phone"
+                           pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
+                    <br><br>
+                    <!-- radio buttons: the SAME name makes them a group where only one can be chosen; "checked" = pre-selected -->
+                    <p>Preferred contact method:</p>
+                    <input type="radio" id="by-email" name="contact-method" value="email" checked>
+                    <label for="by-email">Email</label>
+                    <input type="radio" id="by-phone" name="contact-method" value="phone">
+                    <label for="by-phone">Phone</label>
+                    <br><br>
+                    <!-- date picker; min = earliest allowed date (year-month-day) -->
+                    <label for="meeting">Preferred meeting date:</label>
+                    <input type="date" id="meeting" name="meeting" min="2026-11-01">
+                    <br><br>
+                    <!-- number: min/max = allowed range, step = allowed jump -->
+                    <label for="weeks">Project length (weeks):</label>
+                    <input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
+                    <br><br>
+                    <!-- "Your turn": a budget starting at 1000 and moving in steps of 500 (so 1200 is rejected) -->
+                    <label for="budget">Your budget (ETB):</label>
+                    <input type="number" id="budget" name="budget" min="1000" step="500">
+                    <br><br>
+                    <!-- file chooser: the file's real contents are only sent because the form has enctype="multipart/form-data" -->
+                    <label for="brief">Attach a project brief:</label>
+                    <input type="file" id="brief" name="brief">
+                    <br><br>
+                    <!-- colour picker; value = the starting colour -->
+                    <label for="colour">Preferred website colour:</label>
+                    <input type="color" id="colour" name="colour" value="#1f5fa8">
+                    <br><br>
+                    <!-- range = slider between min and max -->
+                    <label for="rating">How much do you like my portfolio? (1–10)</label>
+                    <input type="range" id="rating" name="rating" min="1" max="10" value="7">
                 </fieldset>
 
                 <fieldset>
                     <legend>Your Message</legend>
                     <label for="reason">Reason for contacting me:</label>
                     <!-- <select> = dropdown; <optgroup> groups options under a heading; value = what is sent -->
-                    <select id="reason" name="reason">
+                    <select id="reason" name="reason" required>
                         <optgroup label="Work">
                             <option value="internship">Internship offer</option>
                             <option value="freelance">Freelance project</option>
@@ -589,7 +627,11 @@ int main() {
                     <br><br>
                     <label for="message">Message:</label><br>
                     <!-- Keep <textarea> and </textarea> touching: anything between them (even a space) becomes the default text -->
-                    <textarea id="message" name="message" rows="6" cols="40"></textarea>
+                    <textarea id="message" name="message" rows="6" cols="40" required></textarea>
+                    <br>
+                    <!-- checkbox: ticked or not; several can be ticked. Only sent when ticked (value="yes") -->
+                    <input type="checkbox" id="copy" name="copy" value="yes">
+                    <label for="copy">Send me a copy of this message</label>
                 </fieldset>
 
                 <!-- submit sends the form; reset empties every field. Buttons must be INSIDE the <form>. -->
