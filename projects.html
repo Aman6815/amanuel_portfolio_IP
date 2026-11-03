@@ -1,7 +1,7 @@
 <!-- ============================================================
      projects.html — SECOND PAGE: details of each project
      Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table,
-     8 semantic structure and metadata
+     8 semantic structure and metadata, 11 video with captions
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,42 +16,16 @@
     <!-- Lab 8, Part A: more metadata -->
     <meta name="keywords" content="Amanuel Alemayehu, projects, FixMyArea, MediNear, Temadeg, web developer">
     <meta name="author" content="Amanuel Alemayehu">
-    <style>
-        :root { --ink: #172033; --muted: #526078; --accent: #155eef; --bg: #f5f7fb; --card: #fff; }
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.65; color: var(--ink); background: var(--bg); }
-        header { background: #10213f; color: white; padding: 1.2rem 1rem; }
-        nav, main, footer { max-width: 950px; margin: auto; }
-        nav { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-        nav .brand { margin-right: auto; font-weight: bold; }
-        nav a { color: white; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
-        main { padding: 1.5rem 1rem 3rem; }
-        .intro, article, aside { background: var(--card); padding: 1.4rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 14px #15294b0c; }
-        h1, h2 { line-height: 1.2; }
-        h1, h2 { color: #10213f; }
-        .muted { color: var(--muted); }
-        a { color: var(--accent); }
-        .button { display: inline-block; background: var(--accent); color: white; padding: .65rem .95rem; border-radius: 7px; text-decoration: none; margin-top: .4rem; }
-        .project-image { display: block; max-width: 100%; height: auto; }
-        .table-wrap { max-width: 100%; overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        caption { font-weight: bold; text-align: left; padding: .6rem 0; }
-        th, td { padding: .6rem; border: 1px solid #cbd5e1; text-align: left; }
-        thead, tfoot { background: #eaf0fb; }
-        hr { border: 0; border-top: 1px solid #cbd5e1; margin: 1.5rem 0; }
-        footer { padding: 1rem; color: var(--muted); text-align: center; }
-    </style>
 </head>
 <body>
     <!-- NAVIGATION: "index.html#about" = go to the home page AND jump to its id="about" section -->
     <header>
         <nav aria-label="Main navigation">
-            <a class="brand" href="index.html">Amanuel Alemayehu</a>
-            <a href="index.html">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#skills">Skills</a>
-            <a href="projects.html" aria-current="page">Projects</a>
+            <a class="brand" href="index.html">Amanuel Alemayehu</a> |
+            <a href="index.html">Home</a> |
+            <a href="index.html#about">About</a> |
+            <a href="index.html#skills">Skills</a> |
+            <a href="projects.html" aria-current="page">Projects</a> |
             <a href="index.html#contact">Contact</a>
         </nav>
     </header>
@@ -215,6 +189,22 @@
             <p><strong>Focus:</strong> Tutor verification, matching and billing.</p>
             <a class="button" href="https://github.com/Aman6815/temadeg" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
             <a class="button" href="https://temadeg.vercel.app" target="_blank" rel="noopener noreferrer">Visit Live Website</a>
+        </article>
+
+        <!-- PROJECT DEMO VIDEO (Lab 11, Part B).
+             controls = play/pause buttons; poster = picture shown before play.
+             The browser plays the FIRST <source> it supports and ignores the rest (mp4, then webm).
+             <track kind="captions"> loads the .vtt captions file; default = captions start switched on.
+             Captions and video need Live Server (http://127.0.0.1), not a double-clicked file:// page. -->
+        <article id="demo">
+            <h2>Project Demo</h2>
+            <h3>Watch the demo</h3>
+            <video controls poster="images/project-demo-poster.jpg" width="640" height="360">
+                <source src="media/project-demo.mp4" type="video/mp4">
+                <source src="media/project-demo.webm" type="video/webm">
+                <track src="media/project-demo.vtt" kind="captions" srclang="en" label="English" default>
+                Your browser does not support the video tag.
+            </video>
         </article>
 
         <!-- Lab 8: <aside> = related but secondary content (a short invitation, not one of the projects) -->
