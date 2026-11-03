@@ -1,11 +1,24 @@
+<!-- ============================================================
+     index.html — HOME PAGE of Amanuel Alemayehu's portfolio
+     Labs covered: 1 structure, 2 headings/hr/br, 3 text formatting,
+     4 links, 5 images/image map/favicon, 6 lists, 7 tables
+     ============================================================ -->
+<!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- HEAD: information about the page; nothing here is shown on the page itself -->
 <head>
+    <!-- UTF-8 lets the page show any character (é, አማርኛ) correctly -->
     <meta charset="UTF-8">
+    <!-- Makes the page fit phone screens instead of shrinking to desktop width -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Text shown in the browser tab -->
     <title>Amanuel Alemayehu | Portfolio</title>
+    <!-- Favicon: the small icon in the browser tab (Lab 5, Part D) -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Short summary used by search engines -->
     <meta name="description" content="Portfolio of Amanuel Alemayehu, a third-year Software Engineering student at AASTU.">
+    <!-- Styling: decorates the page (we only use a little; the CSS chapter comes next) -->
     <style>
         :root { color-scheme: light; --ink: #172033; --muted: #526078; --accent: #155eef; --bg: #f5f7fb; --card: #fff; }
         * { box-sizing: border-box; }
@@ -33,10 +46,18 @@
         caption { font-weight: bold; text-align: left; padding: .6rem 0; }
         th, td { padding: .6rem; border: 1px solid #cbd5e1; text-align: left; }
         thead, tfoot { background: #eaf0fb; }
+        hr { border: 0; border-top: 1px solid #cbd5e1; margin: 1.5rem 0; }
+        mark { background: #fff3a3; padding: 0 .2rem; }
+        blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid var(--accent); background: #f3f6fd; }
+        pre { background: #10213f; color: #fff; padding: 1rem; border-radius: 8px; overflow-x: auto; }
         footer { padding: 1rem; color: var(--muted); text-align: center; }
     </style>
 </head>
+<!-- BODY: everything the visitor sees -->
 <body>
+    <!-- HEADER + NAVIGATION MENU (Lab 4, Part B).
+         href="#about" jumps to the element with id="about" on THIS page;
+         href="projects.html" opens the second page (relative link). -->
     <header>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a>
@@ -48,32 +69,61 @@
         </nav>
     </header>
 
+    <!-- MAIN: the page's main content, split into <section> blocks -->
     <main>
+        <!-- SECTION 1: Home / introduction. Exactly one <h1> per page (Lab 2) -->
         <section id="home">
             <p class="muted">Software Engineering Student · AASTU</p>
             <h1>Hello, I'm Amanuel Alemayehu.</h1>
+            <!-- Profile photo (Lab 5): src = path relative to this file; alt = text for screen readers or when the image fails to load -->
             <img class="profile-photo" src="images/profile.jpg"
                  alt="Portrait of Amanuel Alemayehu"
                  title="Amanuel Alemayehu" width="200" height="200">
             <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
             <a class="button" href="projects.html">View My Projects</a>
+            <!-- "download" makes the browser save the PDF instead of opening it (Lab 4) -->
             <a class="button" href="files/cv.pdf" download>Download My CV (PDF)</a>
         </section>
 
+        <!-- SECTION 2: About Me. Shows text formatting (Lab 3):
+             <sup> superscript, <strong> important, <em> stressed,
+             <mark> highlighted, <b>/<i> look-only bold/italic -->
         <section id="about">
             <h2>About Me</h2>
-            <p>I enjoy turning everyday problems into useful software. My project interests include community issue reporting, helping people locate medicine, and creating online tools for local businesses. I am continuing to develop my programming, web development, and problem-solving skills.</p>
+            <p>I am a 3<sup>rd</sup> year <strong>Software Engineering</strong> student. I <em>really</em> enjoy turning everyday problems into useful software, and my current goal is to <mark>become a full-stack web developer</mark>.</p>
+            <p>My project interests include community issue reporting, helping people locate medicine, and creating online tools for local businesses. I am continuing to develop my programming, web development, and problem-solving skills.</p>
+            <p>Languages I have used: <b>JavaScript</b>, <b>Python</b>, <b>Java</b> and <i>C++</i>.</p>
             <p><strong>Location:</strong> Addis Ababa, Ethiopia</p>
             <p><strong>Education:</strong> Third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU)</p>
         </section>
 
+        <hr>
+
+        <!-- SECTION 3: Quotation elements (Lab 3, Part B):
+             <blockquote> long quote, <q> short inline quote (browser adds the quotation marks), <cite> source name -->
+        <section id="inspiration">
+            <h2>What Inspires Me</h2>
+            <blockquote>
+                “The best way to predict the future is to invent it.” — <cite>Alan Kay</cite>
+            </blockquote>
+            <p>I like to <q>build software that solves real problems</q>, so I practise by building projects for my own community.</p>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 4: Education with the Academic Record table (Lab 7) -->
         <section id="education">
             <h2>Education</h2>
             <p><strong>Addis Ababa Science and Technology University (AASTU)</strong><br>
                BSc in Software Engineering · Third year</p>
             <p class="muted">The completed semesters below are transcribed from the four grade reports provided. Semesters V–X are reserved for future updates; no future grades have been entered.</p>
+            <!-- table-wrap lets the wide table scroll sideways on small screens -->
             <div class="table-wrap">
                 <table border="1" cellpadding="8" cellspacing="0">
+                    <!-- caption = table title.  Table parts: thead = header row, tbody = main rows, tfoot = footer row.
+                         th = header cell, td = data cell.
+                         rowspan="N" = cell stretches down N rows; colspan="N" = cell stretches across N columns.
+                         Rows below skip the cells already covered by a rowspan from above. -->
                     <caption>Academic Record — BSc in Software Engineering</caption>
                     <thead>
                         <tr>
@@ -87,6 +137,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- YEAR 1 / SEMESTER I: "Year 1" spans 16 rows (8 + 8); "Semester I" spans 8 rows (7 courses + 1 summary) -->
                         <tr>
                             <th scope="rowgroup" rowspan="16">Year 1</th>
                             <th scope="rowgroup" rowspan="8">Semester I</th>
@@ -138,12 +189,14 @@
                             <td>A+</td>
                             <td>12</td>
                         </tr>
+                        <!-- Summary row: colspan="2" merges Course Code + Course into one cell -->
                         <tr class="semester-summary">
                             <td colspan="2"><strong>Semester I summary</strong> — GPA: 3.96</td>
                             <td><strong>20</strong></td>
                             <td>—</td>
                             <td><strong>79.25</strong></td>
                         </tr>
+                        <!-- YEAR 1 / SEMESTER II (no Year cell here: Year 1 rowspan still covers it) -->
                         <tr>
                             <th scope="rowgroup" rowspan="8">Semester II</th>
                             <td>EmTE1108</td>
@@ -200,6 +253,7 @@
                             <td>—</td>
                             <td><strong>68.00</strong></td>
                         </tr>
+                        <!-- YEAR 2 / SEMESTER I: "Year 2" spans 13 rows (7 + 6) -->
                         <tr>
                             <th scope="rowgroup" rowspan="13">Year 2</th>
                             <th scope="rowgroup" rowspan="7">Semester I</th>
@@ -250,6 +304,7 @@
                             <td>—</td>
                             <td><strong>57.75</strong></td>
                         </tr>
+                        <!-- YEAR 2 / SEMESTER II -->
                         <tr>
                             <th scope="rowgroup" rowspan="6">Semester II</th>
                             <td>SWEG2106</td>
@@ -292,6 +347,7 @@
                             <td>—</td>
                             <td><strong>47.50</strong></td>
                         </tr>
+                        <!-- FUTURE SEMESTERS: placeholders until results are released (colspan="2" merges Course Code + Course) -->
                         <tr class="future-semester">
                             <th scope="rowgroup" rowspan="2">Year 3</th>
                             <th scope="rowgroup">Semester V (Current)</th>
@@ -338,6 +394,7 @@
                             <td>—</td>
                         </tr>
                     </tbody>
+                    <!-- tfoot: cumulative totals. colspan="4" merges the first 4 columns, leaving 3 cells for credits, CGPA and points -->
                     <tfoot>
                         <tr>
                             <th colspan="4" scope="row">Cumulative total after Semester IV</th>
@@ -350,8 +407,12 @@
             </div>
         </section>
 
+        <hr>
+
+        <!-- SECTION 5: Skills with three list types (Lab 6) -->
         <section id="skills">
             <h2>Technical Skills</h2>
+            <!-- Unordered list (<ul>, bullets). A nested <ul> goes INSIDE its parent <li>, before </li> closes -->
             <ul>
                 <li><strong>Programming Languages</strong>
                     <ul>
@@ -386,6 +447,7 @@
                 </li>
             </ul>
 
+            <!-- Ordered list (<ol>, numbers) because the order of steps matters -->
             <h3>My Learning Roadmap</h3>
             <ol type="1">
                 <li>Strengthen HTML structure and semantic elements</li>
@@ -395,6 +457,7 @@
                 <li>Test, document, and deploy my projects online</li>
             </ol>
 
+            <!-- Description list: <dt> = term, <dd> = its explanation -->
             <h3>Tools I Use</h3>
             <dl>
                 <dt><strong>Visual Studio Code</strong></dt>
@@ -406,33 +469,63 @@
                 <dt><strong>REST APIs</strong></dt>
                 <dd>A way for applications to communicate by exchanging data through HTTP requests.</dd>
                 <dt><strong>Database systems</strong></dt>
-                <dd>Tools such as MySQL, PostgreSQL, and MongoDB that store and organize application data.</dd>
+                <dd>Tools such as PostgreSQL and MongoDB that store and organize application data.</dd>
             </dl>
         </section>
 
+        <hr>
+
+        <!-- SECTION 6: Projects preview (Lab 5, Part B screenshots + Lab 3, Part C code) -->
         <section id="projects">
             <h2>Featured Projects</h2>
             <h3>FixMyArea</h3>
-            <img class="project-image" src="images/project-fixmyarea.png" alt="Placeholder screenshot for the FixMyArea community issue reporting project" width="400" height="250">
+            <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
             <p>A project for residents to report community problems such as potholes and broken streetlights.</p>
             <h3>MediNear</h3>
-            <img class="project-image" src="images/project-medinear.png" alt="Placeholder screenshot for the MediNear pharmacy finder project" width="400" height="250">
+            <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <p>A project intended to help people find nearby pharmacies that have the medicine they need.</p>
             <h3>eCommerce — Haroni Building</h3>
-            <img class="project-image" src="images/project-ecommerce.png" alt="Placeholder screenshot for the Haroni Building e-commerce project" width="400" height="250">
+            <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <p>An online store concept that helps local vendors in Wolaita Sodo list products and reach customers.</p>
-            <a href="projects.html">See project details and GitHub repositories →</a>
+            <!-- <code> marks text as code; <pre> keeps spaces and line breaks.
+                 &lt; and &gt; display the < and > symbols (otherwise the browser reads them as tags) -->
+            <h3>My First Program</h3>
+            <p>The first thing I wrote in Python was <code>print("Hello, World!")</code>. Later I wrote this loop:</p>
+<pre><code>for i in range(3):
+    print("Hello", i)
+</code></pre>
+            <p>The same idea in C++:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    for (int i = 0; i &lt; 3; i++) {
+        std::cout &lt;&lt; "Hello " &lt;&lt; i &lt;&lt; "\n";
+    }
+    return 0;
+}
+</code></pre>
+            <p><a href="projects.html">See project details and GitHub repositories →</a></p>
         </section>
 
+        <hr>
+
+        <!-- SECTION 7: Contact, using every link type (Lab 4, Part C) -->
         <section id="contact">
             <h2>Contact Me</h2>
+            <!-- <br> = line break inside one paragraph -->
+            <p>Address:<br>Addis Ababa,<br>Ethiopia</p>
+            <!-- mailto: opens the visitor's email app; tel: starts a phone call; https:// = absolute link to another website;
+                 target="_blank" opens a new tab, rel="noopener noreferrer" keeps that tab safe -->
             <p>Email: <a href="mailto:amanuelalemayehuseta@gmail.com">amanuelalemayehuseta@gmail.com</a></p>
             <p>Phone: <a href="tel:+251968157594">+251 968 157 594</a></p>
             <p>
                 <a href="https://github.com/Aman6815" target="_blank" rel="noopener noreferrer">GitHub</a> ·
                 <a href="https://www.linkedin.com/in/amanuel-alemayehu-516863446" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
-                <a href="https://aman6815.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Live Portfolio</a>
+                <a href="https://aman6815.github.io/amanuel_portfolio_IP/" target="_blank" rel="noopener noreferrer">Live Portfolio</a>
             </p>
+            <!-- IMAGE MAP (Lab 5, Part C): one image with three clickable areas.
+                 usemap="#connectmap" links the image to the <map> named "connectmap".
+                 rect coords = x1,y1 (top-left), x2,y2 (bottom-right); circle coords = centre-x, centre-y, radius -->
             <h3>Connect with me</h3>
             <img class="connect-banner" src="images/connect-banner.png"
                  usemap="#connectmap"
@@ -448,9 +541,11 @@
                 <area shape="rect" coords="420,40,580,160"
                       href="mailto:amanuelalemayehuseta@gmail.com"
                       alt="Email Amanuel">
+            </map>
         </section>
     </main>
 
+    <!-- FOOTER: copyright line -->
     <footer>
         <p>© 2026 Amanuel Alemayehu. Built with HTML.</p>
     </footer>

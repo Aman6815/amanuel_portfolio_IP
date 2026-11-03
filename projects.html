@@ -1,9 +1,15 @@
+<!-- ============================================================
+     projects.html — SECOND PAGE: details of each project
+     Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table
+     ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Text shown in the browser tab -->
     <title>Projects | Amanuel Alemayehu</title>
+    <!-- Favicon must also be added on this page -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="description" content="Projects by Amanuel Alemayehu, Software Engineering student at AASTU.">
     <style>
@@ -29,10 +35,12 @@
         caption { font-weight: bold; text-align: left; padding: .6rem 0; }
         th, td { padding: .6rem; border: 1px solid #cbd5e1; text-align: left; }
         thead, tfoot { background: #eaf0fb; }
+        hr { border: 0; border-top: 1px solid #cbd5e1; margin: 1.5rem 0; }
         footer { padding: 1rem; color: var(--muted); text-align: center; }
     </style>
 </head>
 <body>
+    <!-- NAVIGATION: "index.html#about" = go to the home page AND jump to its id="about" section -->
     <header>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a>
@@ -44,12 +52,16 @@
     </header>
 
     <main>
+        <!-- Page introduction: the only <h1> on this page -->
         <section class="intro">
             <p class="muted">Portfolio / Projects</p>
             <h1>My Projects</h1>
             <p>These projects reflect my interest in using software to solve practical problems for communities, individuals, and local businesses.</p>
         </section>
 
+        <!-- PROJECT SUMMARY TABLE (Lab 7, Part C): caption = title, thead = column names, tbody = one row per project,
+             tfoot = total row where colspan="3" merges 3 cells so the count sits in the last column.
+             Each Link cell holds an <a> to the project's GitHub page. -->
         <div class="table-wrap">
             <table border="1" cellpadding="8" cellspacing="0">
                 <caption>Project Summary</caption>
@@ -64,20 +76,20 @@
                 <tbody>
                     <tr>
                         <th scope="row">FixMyArea</th>
-                        <td>JavaScript</td>
-                        <td>Update year</td>
+                        <td>JavaScript (Node.js)</td>
+                        <td>2026</td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                     <tr>
                         <th scope="row">MediNear</th>
-                        <td>JavaScript</td>
-                        <td>Update year</td>
+                        <td>JavaScript (Node.js)</td>
+                        <td>2026</td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                     <tr>
                         <th scope="row">Haroni Building eCommerce</th>
-                        <td>JavaScript</td>
-                        <td>Update year</td>
+                        <td>JavaScript (Node.js)</td>
+                        <td>2026</td><!-- TODO: put the real year -->
                         <td><a href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">GitHub repository</a></td>
                     </tr>
                 </tbody>
@@ -90,8 +102,12 @@
             </table>
         </div>
 
+        <!-- PROJECT 1. Each project follows the same pattern: h2 title, screenshot, ordered list (steps),
+             unordered list (technologies), description, GitHub button -->
         <article>
             <h2>1. FixMyArea</h2>
+            <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
+            <!-- Ordered list: steps happen in order -->
             <h3>How I Built It</h3>
             <ol>
                 <li>Identify the community problem: reporting potholes and broken streetlights.</li>
@@ -99,6 +115,7 @@
                 <li>Design the reporting flow and the way submitted issues are displayed.</li>
                 <li>Test the user flow and refine the project based on feedback.</li>
             </ol>
+            <!-- Unordered list: order does not matter -->
             <h3>Technologies Used</h3>
             <ul>
                 <li>HTML5, CSS3, and JavaScript for the frontend.</li>
@@ -113,8 +130,10 @@
             <a class="button" href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
+        <!-- PROJECT 2 -->
         <article>
             <h2>2. MediNear</h2>
+            <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <h3>How I Built It</h3>
             <ol>
                 <li>Identify the need to find nearby pharmacies with required medicine.</li>
@@ -136,8 +155,10 @@
             <a class="button" href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
+        <!-- PROJECT 3 -->
         <article>
             <h2>3. eCommerce — Haroni Building</h2>
+            <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <h3>How I Built It</h3>
             <ol>
                 <li>Identify the needs of local vendors who want to list products online.</li>
@@ -159,6 +180,8 @@
             <a class="button" href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
+        <hr>
+        <!-- Extra links (Lab 4 "Your turn"): external site, jump to the home page Contact section, back to home -->
         <p><a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">W3C — Official Website</a></p>
         <p><a href="index.html#contact">Contact Amanuel</a></p>
         <p><a href="index.html">← Back to Home</a></p>
