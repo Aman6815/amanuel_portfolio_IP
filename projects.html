@@ -1,6 +1,7 @@
 <!-- ============================================================
      projects.html — SECOND PAGE: details of each project
-     Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table
+     Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table,
+     8 semantic structure and metadata
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,9 @@
     <!-- Favicon must also be added on this page -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="description" content="Projects by Amanuel Alemayehu, Software Engineering student at AASTU.">
+    <!-- Lab 8, Part A: more metadata -->
+    <meta name="keywords" content="Amanuel Alemayehu, projects, FixMyArea, MediNear, Temadeg, web developer">
+    <meta name="author" content="Amanuel Alemayehu">
     <style>
         :root { --ink: #172033; --muted: #526078; --accent: #155eef; --bg: #f5f7fb; --card: #fff; }
         * { box-sizing: border-box; }
@@ -23,7 +27,7 @@
         nav a { color: white; text-decoration: none; }
         nav a:hover { text-decoration: underline; }
         main { padding: 1.5rem 1rem 3rem; }
-        .intro, article { background: var(--card); padding: 1.4rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 14px #15294b0c; }
+        .intro, article, aside { background: var(--card); padding: 1.4rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 14px #15294b0c; }
         h1, h2 { line-height: 1.2; }
         h1, h2 { color: #10213f; }
         .muted { color: var(--muted); }
@@ -44,6 +48,7 @@
     <header>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a>
+            <a href="index.html">Home</a>
             <a href="index.html#about">About</a>
             <a href="index.html#skills">Skills</a>
             <a href="projects.html" aria-current="page">Projects</a>
@@ -110,7 +115,7 @@
 
         <!-- PROJECT 1. Each project follows the same pattern: h2 title, screenshot, ordered list (steps),
              unordered list (technologies), description, GitHub button -->
-        <article>
+        <article id="fixmyarea">
             <h2>1. FixMyArea</h2>
             <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
             <!-- Ordered list: steps happen in order -->
@@ -137,7 +142,7 @@
         </article>
 
         <!-- PROJECT 2 -->
-        <article>
+        <article id="medinear">
             <h2>2. MediNear</h2>
             <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <h3>How I Built It</h3>
@@ -162,7 +167,7 @@
         </article>
 
         <!-- PROJECT 3 -->
-        <article>
+        <article id="ecommerce">
             <h2>3. eCommerce — Haroni Building</h2>
             <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <h3>How I Built It</h3>
@@ -187,7 +192,7 @@
         </article>
 
         <!-- PROJECT 4 -->
-        <article>
+        <article id="temadeg">
             <h2>4. Temadeg</h2>
             <img class="project-image" src="images/project-temadeg.png" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
             <h3>How I Built It</h3>
@@ -211,6 +216,12 @@
             <a class="button" href="https://github.com/Aman6815/temadeg" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
             <a class="button" href="https://temadeg.vercel.app" target="_blank" rel="noopener noreferrer">Visit Live Website</a>
         </article>
+
+        <!-- Lab 8: <aside> = related but secondary content (a short invitation, not one of the projects) -->
+        <aside>
+            <h2>Interested in working with me?</h2>
+            <p>I am open to internships and freelance web projects. <a href="index.html#contact">Get in touch</a> or <a href="files/cv.pdf" download>download my CV</a>.</p>
+        </aside>
 
         <hr>
         <!-- Extra links (Lab 4 "Your turn"): external site, jump to the home page Contact section, back to home -->

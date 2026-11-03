@@ -1,7 +1,8 @@
 <!-- ============================================================
      index.html — HOME PAGE of Amanuel Alemayehu's portfolio
      Labs covered: 1 structure, 2 headings/hr/br, 3 text formatting,
-     4 links, 5 images/image map/favicon, 6 lists, 7 tables
+     4 links, 5 images/image map/favicon, 6 lists, 7 tables,
+     8 semantic structure and metadata
      ============================================================ -->
 <!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
@@ -18,19 +19,23 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- Short summary used by search engines -->
     <meta name="description" content="Portfolio of Amanuel Alemayehu, a third-year Software Engineering student at AASTU.">
+    <!-- Lab 8, Part A: more metadata (not shown on the page; used by search engines and tools) -->
+    <meta name="keywords" content="Amanuel Alemayehu, portfolio, software engineering, web developer, HTML">
+    <meta name="author" content="Amanuel Alemayehu">
     <!-- Styling: decorates the page (we only use a little; the CSS chapter comes next) -->
     <style>
         :root { color-scheme: light; --ink: #172033; --muted: #526078; --accent: #155eef; --bg: #f5f7fb; --card: #fff; }
         * { box-sizing: border-box; }
         body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.65; color: var(--ink); background: var(--bg); }
-        header { background: #10213f; color: white; padding: 1.2rem 1rem; }
+        header { background: #10213f; color: white; padding: 1.2rem max(1rem, calc((100% - 950px) / 2)); }
         nav, main, footer { max-width: 950px; margin: auto; }
         nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
         nav .brand { margin-right: auto; font-weight: bold; }
         nav a { color: white; text-decoration: none; }
         nav a:hover { text-decoration: underline; }
+        header nav { margin-top: 1rem; }
         main { padding: 1.5rem 1rem 3rem; }
-        section { background: var(--card); padding: 1.4rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 14px #15294b0c; }
+        section, aside { background: var(--card); padding: 1.4rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 14px #15294b0c; }
         h1, h2 { line-height: 1.2; }
         h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .5rem; }
         h2 { color: #10213f; }
@@ -55,10 +60,20 @@
 </head>
 <!-- BODY: everything the visitor sees -->
 <body>
-    <!-- HEADER + NAVIGATION MENU (Lab 4, Part B).
-         href="#about" jumps to the element with id="about" on THIS page;
+    <!-- HEADER (Lab 8, Part B): name (the only <h1>), photo, tagline, intro, buttons and the <nav> menu.
+         In the menu, href="#about" jumps to the element with id="about" on THIS page;
          href="projects.html" opens the second page (relative link). -->
     <header>
+        <h1>Hello, I'm Amanuel Alemayehu.</h1>
+        <!-- Profile photo (Lab 5): src = path relative to this file; alt = text for screen readers or when the image fails to load -->
+        <img class="profile-photo" src="images/profile.jpg"
+             alt="Portrait of Amanuel Alemayehu"
+             title="Amanuel Alemayehu" width="200" height="200">
+        <p>Software Engineering student · AASTU</p>
+        <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
+        <a class="button" href="projects.html">View My Projects</a>
+        <!-- "download" makes the browser save the PDF instead of opening it (Lab 4) -->
+        <a class="button" href="files/cv.pdf" download>Download My CV (PDF)</a>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a>
             <a href="#about">About</a>
@@ -71,20 +86,6 @@
 
     <!-- MAIN: the page's main content, split into <section> blocks -->
     <main>
-        <!-- SECTION 1: Home / introduction. Exactly one <h1> per page (Lab 2) -->
-        <section id="home">
-            <p class="muted">Software Engineering Student · AASTU</p>
-            <h1>Hello, I'm Amanuel Alemayehu.</h1>
-            <!-- Profile photo (Lab 5): src = path relative to this file; alt = text for screen readers or when the image fails to load -->
-            <img class="profile-photo" src="images/profile.jpg"
-                 alt="Portrait of Amanuel Alemayehu"
-                 title="Amanuel Alemayehu" width="200" height="200">
-            <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
-            <a class="button" href="projects.html">View My Projects</a>
-            <!-- "download" makes the browser save the PDF instead of opening it (Lab 4) -->
-            <a class="button" href="files/cv.pdf" download>Download My CV (PDF)</a>
-        </section>
-
         <!-- SECTION 2: About Me. Shows text formatting (Lab 3):
              <sup> superscript, <strong> important, <em> stressed,
              <mark> highlighted, <b>/<i> look-only bold/italic -->
@@ -97,19 +98,15 @@
             <p><strong>Education:</strong> Third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU)</p>
         </section>
 
-        <hr>
-
-        <!-- SECTION 3: Quotation elements (Lab 3, Part B):
+        <!-- SECTION 3 (an <aside> since Lab 8: related but secondary content). Quotation elements (Lab 3, Part B):
              <blockquote> long quote, <q> short inline quote (browser adds the quotation marks), <cite> source name -->
-        <section id="inspiration">
+        <aside id="inspiration">
             <h2>What Inspires Me</h2>
             <blockquote>
                 “The best way to predict the future is to invent it.” — <cite>Alan Kay</cite>
             </blockquote>
             <p>I like to <q>build software that solves real problems</q>, so I practise by building projects for my own community.</p>
-        </section>
-
-        <hr>
+        </aside>
 
         <!-- SECTION 4: Education with the Academic Record table (Lab 7) -->
         <section id="education">
@@ -407,8 +404,6 @@
             </div>
         </section>
 
-        <hr>
-
         <!-- SECTION 5: Skills with three list types (Lab 6) -->
         <section id="skills">
             <h2>Technical Skills</h2>
@@ -473,23 +468,31 @@
             </dl>
         </section>
 
-        <hr>
-
-        <!-- SECTION 6: Projects preview (Lab 5, Part B screenshots + Lab 3, Part C code) -->
+        <!-- SECTION 6: Projects preview (Lab 5, Part B screenshots + Lab 3, Part C code).
+             Lab 8: each project is an <article> = a self-contained item that makes sense on its own -->
         <section id="projects">
             <h2>Featured Projects</h2>
+            <article>
             <h3>FixMyArea</h3>
             <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
             <p>A project for residents to report community problems such as potholes and broken streetlights.</p>
+            </article>
+            <article>
             <h3>MediNear</h3>
             <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <p>A project intended to help people find nearby pharmacies that have the medicine they need.</p>
+            </article>
+            <article>
             <h3>eCommerce — Haroni Building</h3>
             <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <p>An online store concept that helps local vendors in Wolaita Sodo list products and reach customers.</p>
+            </article>
+            <article>
             <h3>Temadeg</h3>
             <img class="project-image" src="images/project-temadeg.png" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
             <p>A tutoring platform that connects families with verified tutors.</p>
+            </article>
+            <article>
             <!-- <code> marks text as code; <pre> keeps spaces and line breaks.
                  &lt; and &gt; display the < and > symbols (otherwise the browser reads them as tags) -->
             <h3>My First Program</h3>
@@ -507,10 +510,9 @@ int main() {
     return 0;
 }
 </code></pre>
+            </article>
             <p><a href="projects.html">See project details and GitHub repositories →</a></p>
         </section>
-
-        <hr>
 
         <!-- SECTION 7: Contact, using every link type (Lab 4, Part C) -->
         <section id="contact">
