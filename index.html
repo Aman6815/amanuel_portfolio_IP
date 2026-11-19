@@ -1,10 +1,7 @@
 <!-- ============================================================
      index.html — HOME PAGE of Amanuel Alemayehu's portfolio
      Labs covered: 1 structure, 2 headings/hr/br, 3 text formatting,
-     4 links, 5 images/image map/favicon, 6 lists, 7 tables,
-     8 semantic structure and metadata, 9 contact form basics,
-     10 input types, validation, GET vs POST, 11 audio/video/iframes,
-     12 details, dialog, meter and progress, 13 time, abbr and entities, 14 canvas
+     4 links, 5 images/image map/favicon, 6 lists, 7 tables
      ============================================================ -->
 <!-- Tells the browser this is an HTML5 document -->
 <!DOCTYPE html>
@@ -19,38 +16,29 @@
     <title>Amanuel Alemayehu | Portfolio</title>
     <!-- Favicon: the small icon in the browser tab (Lab 5, Part D) -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <!-- Google Font (Lab 16). Must come ABOVE style.css, and on every page. Needs internet; without it the fallback fonts are used. -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- External stylesheet, shared by every page (Lab 15). href is relative to THIS html file, so it must be css/style.css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Short summary used by search engines -->
     <meta name="description" content="Portfolio of Amanuel Alemayehu, a third-year Software Engineering student at AASTU.">
-    <!-- Lab 8, Part A: more metadata (not shown on the page; used by search engines and tools) -->
     <meta name="keywords" content="Amanuel Alemayehu, portfolio, software engineering, web developer, HTML">
     <meta name="author" content="Amanuel Alemayehu">
 </head>
 <!-- BODY: everything the visitor sees -->
 <body>
-    <!-- HEADER (Lab 8, Part B): name (the only <h1>), photo, tagline, intro, buttons and the <nav> menu.
-         In the menu, href="#about" jumps to the element with id="about" on THIS page;
+    <!-- HEADER + NAVIGATION MENU (Lab 4, Part B).
+         href="#about" jumps to the element with id="about" on THIS page;
          href="projects.html" opens the second page (relative link). -->
     <header>
-        <!-- LOGO CANVAS (Lab 14). <canvas> is an empty drawing area; JavaScript draws on it (script at the bottom of the page).
-             Set the size with the width and height ATTRIBUTES (not CSS), or the drawing is stretched.
-             The text inside shows only if the browser cannot draw. -->
+        <!-- Logo, drawn by the script at the bottom of the page -->
         <canvas id="logo" width="120" height="120">Amanuel Alemayehu logo</canvas>
         <h1>Hello, I'm Amanuel Alemayehu.</h1>
         <!-- Profile photo (Lab 5): src = path relative to this file; alt = text for screen readers or when the image fails to load -->
         <img class="profile-photo" src="images/profile.jpg"
              alt="Portrait of Amanuel Alemayehu"
              title="Amanuel Alemayehu" width="200" height="200">
-        <!-- <abbr title="..."> shows the full name as a tooltip when the visitor hovers over the short form (Lab 13, Part B) -->
-        <p>Software Engineering student · <abbr title="Addis Ababa Science and Technology University">AASTU</abbr></p>
-        <!-- HIRE ME DIALOG (Lab 12, Part B).
-             type="button" = does nothing by itself, so the JavaScript in onclick decides what happens.
-             showModal() opens the dialog and blocks the page behind it (Esc also closes it); close() shuts it.
-             The id inside getElementById('...') must match the dialog's id exactly. -->
-        <button type="button" onclick="document.getElementById('hireDialog').showModal()">Hire me</button>
+        <p class="tagline">Software Engineering student · <abbr title="Addis Ababa Science and Technology University">AASTU</abbr></p>
+        <!-- Hire me button and its pop-up -->
+        <button type="button" class="btn" onclick="document.getElementById('hireDialog').showModal()">Hire me</button>
         <dialog id="hireDialog">
             <h2>Open to internships and freelance work</h2>
             <p>I am open to internships and freelance web projects.</p>
@@ -58,9 +46,9 @@
             <button type="button" onclick="document.getElementById('hireDialog').close()">Close</button>
         </dialog>
         <p>I am a third-year Software Engineering student at Addis Ababa Science and Technology University (AASTU), interested in building practical software and full-stack web applications.</p>
-        <a class="button" href="projects.html">View My Projects</a>
+        <a class="btn" href="projects.html">View My Projects</a>
         <!-- "download" makes the browser save the PDF instead of opening it (Lab 4) -->
-        <a class="button" href="files/cv.pdf" download>Download My <abbr title="Curriculum Vitae">CV</abbr> (PDF)</a>
+        <a class="btn" href="files/cv.pdf" download>Download My <abbr title="Curriculum Vitae">CV</abbr> (PDF)</a>
         <nav aria-label="Main navigation">
             <a class="brand" href="index.html">Amanuel Alemayehu</a> |
             <a href="#about">About</a> |
@@ -81,15 +69,10 @@
             <p>I am a 3<sup>rd</sup> year <strong>Software Engineering</strong> student. I <em>really</em> enjoy turning everyday problems into useful software, and my current goal is to <mark>become a full-stack web developer</mark>.</p>
             <p>My project interests include community issue reporting, helping people locate medicine, and creating online tools for local businesses. I am continuing to develop my programming, web development, and problem-solving skills.</p>
             <p>Languages I have used: <b>JavaScript</b>, <b>Python</b>, <b>Java</b> and <i>C++</i>.</p>
-            <!-- HTML ENTITIES (Lab 13, Part C): &lt; and &gt; display the < and > symbols as text, &amp; displays &.
-                 Typing <main> without entities would silently create a second <main> element. Always end an entity with ; -->
             <p>My favourite tag is &lt;main&gt;, because it tells the browser
                where the important content is &amp; helps screen readers.</p>
             <p><strong>Location:</strong> Addis Ababa, Ethiopia</p>
             <p><strong>Education:</strong> Third-year Software Engineering student at Addis Ababa Science and Technology University (<abbr title="Addis Ababa Science and Technology University">AASTU</abbr>)</p>
-            <!-- AUDIO (Lab 11, Part A). controls = show play/pause/volume buttons.
-                 <source> names the file and its type; the text inside is shown only if the browser cannot play audio.
-                 Do NOT add autoplay or loop: browsers block autoplay with sound, and looping sound annoys visitors. -->
             <h3>Hear my introduction</h3>
             <audio controls>
                 <source src="media/intro.mp3" type="audio/mpeg">
@@ -97,7 +80,7 @@
             </audio>
         </section>
 
-        <!-- SECTION 3 (an <aside> since Lab 8: related but secondary content). Quotation elements (Lab 3, Part B):
+        <!-- SECTION 3: Quotation elements (Lab 3, Part B):
              <blockquote> long quote, <q> short inline quote (browser adds the quotation marks), <cite> source name -->
         <aside id="inspiration">
             <h2>What Inspires Me</h2>
@@ -105,8 +88,7 @@
                 “The best way to predict the future is to invent it.” — <cite>Alan Kay</cite>
             </blockquote>
             <p>I like to <q>build software that solves real problems</q>, so I practise by building projects for my own community.</p>
-            <!-- YOUTUBE TALK (Lab 11, Part C). TO DO: pick a short talk, click Share -> Embed on YouTube, and put ITS video id in src
-                 (use the /embed/ address, NOT the youtube.com/watch?v= address), fix the title, then remove the comment markers around the iframe.
+            <!-- TODO: add the YouTube embed link, then remove this comment
             <h3>A talk I recommend</h3>
             <iframe src="https://www.youtube.com/embed/VIDEO_ID"
                     width="560" height="315"
@@ -119,12 +101,8 @@
         <!-- SECTION 4: Education with the Academic Record table (Lab 7) -->
         <section id="education">
             <h2>Education</h2>
-            <!-- <time datetime="..."> gives a machine-readable date (year-month-day order) next to the human-readable text (Lab 13, Part A).
-                 TO DO: confirm the year (and month, e.g. datetime="2024-09") you really started. -->
             <p><strong>Addis Ababa Science and Technology University (<abbr title="Addis Ababa Science and Technology University">AASTU</abbr>)</strong><br>
                BSc in Software Engineering · Third year · <time datetime="2024">2024</time> – present</p>
-            <!-- PROGRESS BAR (Lab 12, Part D). value out of max: 4 of 10 semesters finished = 40 out of 100.
-                 Update the value as new semesters are completed. -->
             <p>
                 <label for="degree">Degree progress:</label>
                 <progress id="degree" value="40" max="100">40%</progress> 40%
@@ -458,10 +436,6 @@
                 </li>
             </ul>
 
-            <!-- SKILL LEVELS (Lab 12, Part C). <meter> = a measurement on a known scale (like a fuel gauge); <progress> = how far a task has got.
-                 value = the level, min/max = the scale (0 to 1 here, so 0.8 = 80%).
-                 low/high/optimum tell the browser which values are poor or good, so the colour can change.
-                 TO DO: change every value below to your own honest level. -->
             <h3>Skill Levels</h3>
             <p>
                 <label for="lvl-html">HTML</label>
@@ -475,12 +449,11 @@
                 <label for="lvl-js">JavaScript</label>
                 <meter id="lvl-js" value="0.6" min="0" max="1" low="0.3" high="0.7" optimum="1">60%</meter>
             </p>
-            <!-- "Your turn": a fourth meter for a skill of your choice -->
             <p>
                 <label for="lvl-node">Node.js</label>
                 <meter id="lvl-node" value="0.5" min="0" max="1" low="0.3" high="0.7" optimum="1">50%</meter>
             </p>
-            <!-- SKILLS BAR CHART (Lab 14, "Your turn"): drawn by the script at the bottom of the page from the meter values above -->
+            <!-- Skills chart, drawn by the script at the bottom of the page -->
             <h3>Skill Levels Chart</h3>
             <canvas id="skillsChart" width="300" height="150">Bar chart of my skill levels: HTML, Python, JavaScript and Node.js</canvas>
 
@@ -510,31 +483,30 @@
             </dl>
         </section>
 
-        <!-- SECTION 6: Projects preview (Lab 5, Part B screenshots + Lab 3, Part C code).
-             Lab 8: each project is an <article> = a self-contained item that makes sense on its own -->
+        <!-- SECTION 6: Projects preview (Lab 5, Part B screenshots + Lab 3, Part C code) -->
         <section id="projects">
             <h2>Featured Projects</h2>
-            <article>
+            <article class="card">
             <h3>FixMyArea</h3>
             <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
             <p>A project for residents to report community problems such as potholes and broken streetlights.</p>
             </article>
-            <article>
+            <article class="card">
             <h3>MediNear</h3>
             <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <p>A project intended to help people find nearby pharmacies that have the medicine they need.</p>
             </article>
-            <article>
+            <article class="card">
             <h3>eCommerce — Haroni Building</h3>
             <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <p>An online store concept that helps local vendors in Wolaita Sodo list products and reach customers.</p>
             </article>
-            <article>
+            <article class="card">
             <h3>Temadeg</h3>
             <img class="project-image" src="images/project-temadeg.PNG" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
             <p>A tutoring platform that connects families with verified tutors.</p>
             </article>
-            <article>
+            <article class="card">
             <!-- <code> marks text as code; <pre> keeps spaces and line breaks.
                  &lt; and &gt; display the < and > symbols (otherwise the browser reads them as tags) -->
             <h3>My First Program</h3>
@@ -590,17 +562,11 @@ int main() {
                       alt="Email Amanuel">
             </map>
 
-            <!-- CONTACT FORM (Lab 9 + 10). action = which page receives the data; method = how it is sent.
-                 Lab 10: method="post" keeps the message out of the address bar (GET would put it in the URL).
-                 enctype="multipart/form-data" is needed so a chosen file is sent with its real contents, not just its name.
-                 The name="..." of each field is the KEY that is sent; what the visitor types is the VALUE. -->
+            <!-- Contact form -->
             <h3>Send me a message</h3>
             <form action="thank-you.html" method="post" enctype="multipart/form-data">
-                <!-- <fieldset> groups related fields; <legend> is the group's title -->
                 <fieldset>
                     <legend>Your Details</legend>
-                    <!-- <label for="fullname"> is linked to the input whose id="fullname":
-                         clicking the label puts the cursor in the box, and screen readers read it aloud -->
                     <label for="fullname">Full name:</label>
                     <input type="text" id="fullname" name="fullname" required>
                     <br><br>
@@ -608,43 +574,35 @@ int main() {
                     <input type="email" id="email" name="email" required>
                 </fieldset>
 
-                <!-- PROJECT DETAILS (Lab 10): one input type per purpose -->
+                <!-- Project details -->
                 <fieldset>
                     <legend>Project Details</legend>
-                    <!-- type="text" + pattern: the value must match the format. 0[79] = starts with 07 or 09, [0-9]{8} = eight more digits.
-                         title = the hint shown in the browser's error message. Not required, so it may stay empty. -->
+                    <!-- phone: 07 or 09 followed by 8 digits -->
                     <label for="phone">Phone (optional):</label>
                     <input type="text" id="phone" name="phone"
                            pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
                     <br><br>
-                    <!-- radio buttons: the SAME name makes them a group where only one can be chosen; "checked" = pre-selected -->
                     <p>Preferred contact method:</p>
                     <input type="radio" id="by-email" name="contact-method" value="email" checked>
                     <label for="by-email">Email</label>
                     <input type="radio" id="by-phone" name="contact-method" value="phone">
                     <label for="by-phone">Phone</label>
                     <br><br>
-                    <!-- date picker; min = earliest allowed date (year-month-day) -->
                     <label for="meeting">Preferred meeting date:</label>
                     <input type="date" id="meeting" name="meeting" min="2026-11-01">
                     <br><br>
-                    <!-- number: min/max = allowed range, step = allowed jump -->
                     <label for="weeks">Project length (weeks):</label>
                     <input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
                     <br><br>
-                    <!-- "Your turn": a budget starting at 1000 and moving in steps of 500 (so 1200 is rejected) -->
                     <label for="budget">Your budget (ETB):</label>
                     <input type="number" id="budget" name="budget" min="1000" step="500">
                     <br><br>
-                    <!-- file chooser: the file's real contents are only sent because the form has enctype="multipart/form-data" -->
                     <label for="brief">Attach a project brief:</label>
                     <input type="file" id="brief" name="brief">
                     <br><br>
-                    <!-- colour picker; value = the starting colour -->
                     <label for="colour">Preferred website colour:</label>
                     <input type="color" id="colour" name="colour" value="#1f5fa8">
                     <br><br>
-                    <!-- range = slider between min and max -->
                     <label for="rating">How much do you like my portfolio? (1–10)</label>
                     <input type="range" id="rating" name="rating" min="1" max="10" value="7">
                 </fieldset>
@@ -652,7 +610,6 @@ int main() {
                 <fieldset>
                     <legend>Your Message</legend>
                     <label for="reason">Reason for contacting me:</label>
-                    <!-- <select> = dropdown; <optgroup> groups options under a heading; value = what is sent -->
                     <select id="reason" name="reason" required>
                         <optgroup label="Work">
                             <option value="internship">Internship offer</option>
@@ -667,21 +624,17 @@ int main() {
                     </select>
                     <br><br>
                     <label for="message">Message:</label><br>
-                    <!-- Keep <textarea> and </textarea> touching: anything between them (even a space) becomes the default text -->
                     <textarea id="message" name="message" rows="6" cols="40" required></textarea>
                     <br>
-                    <!-- checkbox: ticked or not; several can be ticked. Only sent when ticked (value="yes") -->
                     <input type="checkbox" id="copy" name="copy" value="yes">
                     <label for="copy">Send me a copy of this message</label>
                 </fieldset>
 
-                <!-- submit sends the form; reset empties every field. Buttons must be INSIDE the <form>. -->
-                <button type="submit">Send Message</button>
-                <button type="reset">Clear</button>
+                <button type="submit" class="btn">Send Message</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
             </form>
 
-            <!-- MAP (Lab 11, Part C). An <iframe> shows another web page inside this one.
-                 title is required: screen readers announce it. If you prefer, replace src with the one from Google Maps -> Share -> Embed a map. -->
+            <!-- Map of the campus -->
             <h3>Where I study</h3>
             <iframe src="https://www.google.com/maps?q=Addis+Ababa+Science+and+Technology+University&amp;output=embed"
                     width="600" height="300"
@@ -692,41 +645,34 @@ int main() {
 
     <!-- FOOTER: copyright line -->
     <footer>
-        <!-- &copy; is the entity for the copyright symbol; &nbsp; would be a space that never breaks -->
         <p>&copy; 2026 Amanuel Alemayehu. All rights reserved. Built with HTML.</p>
         <p>Last updated: <time datetime="2026-11-04">4 November 2026</time></p>
     </footer>
 
-    <!-- DRAWING CODE (Lab 14). It must come AFTER the <canvas> elements, or getElementById finds nothing (check F12 -> Console).
-         On a canvas, (0, 0) is the TOP-LEFT corner: x grows to the right and y grows DOWNWARD. -->
+    <!-- Drawing code for the logo and the skills chart -->
     <script>
-        // ---------- 1. Logo: blue square, white circle, initials ----------
+        // logo
         const canvas = document.getElementById('logo');
-        const ctx = canvas.getContext('2d');   // the "pen" we draw with
+        const ctx = canvas.getContext('2d');
 
-        // Blue square background: x, y, width, height
         ctx.fillStyle = "#1f5fa8";
         ctx.fillRect(0, 0, 120, 120);
 
-        // White circle: centre x, centre y, radius, start angle, end angle
-        ctx.beginPath();                        // start a NEW shape, or it joins the previous one
+        ctx.beginPath();
         ctx.arc(60, 60, 45, 0, 2 * Math.PI);
         ctx.fillStyle = "white";
         ctx.fill();
 
-        // Initials in the middle (set fillStyle BEFORE drawing the text)
         ctx.fillStyle = "#1f5fa8";
         ctx.font = "bold 36px Arial";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText("AA", 60, 62);
 
-        // ---------- 2. Bar chart of the skill levels ----------
-        // New names (chart, chartCtx): a const can only be declared once per page.
+        // skills bar chart: each bar uses the value of its meter
         const chart = document.getElementById('skillsChart');
         const chartCtx = chart.getContext('2d');
 
-        // Each bar reads its value (0 to 1) from the matching <meter>, so the chart follows your honest values.
         const skills = [
             { name: "HTML",    meter: "lvl-html" },
             { name: "Python",  meter: "lvl-python" },
@@ -734,21 +680,20 @@ int main() {
             { name: "Node.js", meter: "lvl-node" }
         ];
 
-        // The bars stand on the line y = 130. Because y grows downward, a bar starts at y = 130 - height.
         chartCtx.fillStyle = "black";
-        chartCtx.fillRect(10, 130, 280, 1);     // the baseline
+        chartCtx.fillRect(10, 130, 280, 1);   // baseline
 
         chartCtx.font = "12px Arial";
         chartCtx.textAlign = "center";
         for (let i = 0; i < skills.length; i++) {
-            const value = document.getElementById(skills[i].meter).value;   // e.g. 0.8
-            const height = value * 120;          // 80% of 120 px = 96 px
-            const x = 20 + i * 70;               // bars are 50 px wide, 70 px apart
+            const value = document.getElementById(skills[i].meter).value;
+            const height = value * 120;
+            const x = 20 + i * 70;
 
             chartCtx.fillStyle = "#1f5fa8";
-            chartCtx.fillRect(x, 130 - height, 50, height);
+            chartCtx.fillRect(x, 130 - height, 50, height);   // y grows downward
 
-            chartCtx.fillStyle = "black";        // set the colour before the text
+            chartCtx.fillStyle = "black";
             chartCtx.fillText(skills[i].name, x + 25, 145);
         }
     </script>

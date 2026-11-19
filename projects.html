@@ -1,7 +1,6 @@
 <!-- ============================================================
      projects.html — SECOND PAGE: details of each project
-     Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table,
-     8 semantic structure and metadata, 11 video with captions, 12 details/summary, 13 time and entities
+     Labs covered: 4 links between pages, 5 screenshots, 6 lists, 7 table
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +11,9 @@
     <title>Projects | Amanuel Alemayehu</title>
     <!-- Favicon must also be added on this page -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <!-- Google Font (Lab 16). Must come ABOVE style.css, and on every page. Needs internet; without it the fallback fonts are used. -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- External stylesheet, shared by every page (Lab 15). href is relative to THIS html file, so it must be css/style.css -->
     <link rel="stylesheet" href="css/style.css">
     <meta name="description" content="Projects by Amanuel Alemayehu, Software Engineering student at AASTU.">
-    <!-- Lab 8, Part A: more metadata -->
     <meta name="keywords" content="Amanuel Alemayehu, projects, FixMyArea, MediNear, Temadeg, web developer">
     <meta name="author" content="Amanuel Alemayehu">
 </head>
@@ -93,10 +89,10 @@
 
         <!-- PROJECT 1. Each project follows the same pattern: h2 title, screenshot, ordered list (steps),
              unordered list (technologies), description, GitHub button -->
-        <article id="fixmyarea">
+        <article id="fixmyarea" class="card">
             <h2>1. FixMyArea</h2>
             <img class="project-image" src="images/project-fixmyarea.png" alt="Screenshot of the FixMyArea home page with the headline “See a Problem? Report It.” and three cards: Report a Problem, Explore Problems, Track Progress" width="400" height="250">
-            <!-- <details> = a section that opens and closes; <summary> = the clickable heading (Lab 12, Part A). Add the attribute open to start expanded. -->
+            <!-- Ordered list: steps happen in order -->
             <details>
                 <summary>How I built it</summary>
                 <ol>
@@ -118,11 +114,11 @@
 
             <p>FixMyArea is designed to let residents report community problems, including potholes and broken streetlights, so these issues can be tracked and addressed.</p>
             <p><strong>Focus:</strong> Community issue reporting.</p>
-            <a class="button" href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+            <a class="btn" href="https://github.com/Aman6815/FixMyArea" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
         <!-- PROJECT 2 -->
-        <article id="medinear">
+        <article id="medinear" class="card">
             <h2>2. MediNear</h2>
             <img class="project-image" src="images/project-medinear.png" alt="Screenshot of the MediNear home page with the headline “Find a pharmacy that has your medicine — right now.” and a medicine search form" width="400" height="250">
             <details>
@@ -145,11 +141,11 @@
 
             <p>MediNear aims to help people quickly find nearby pharmacies that have the medicine they need, especially when locating medicine is urgent.</p>
             <p><strong>Focus:</strong> Medicine availability and pharmacy discovery.</p>
-            <a class="button" href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+            <a class="btn" href="https://github.com/Aman6815/MediNear" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
         <!-- PROJECT 3 -->
-        <article id="ecommerce">
+        <article id="ecommerce" class="card">
             <h2>3. eCommerce — Haroni Building</h2>
             <img class="project-image" src="images/project-ecommerce.png" alt="Screenshot of the Haroni Online Market home page with a “Shop Local Products” banner and a Shop Now button" width="400" height="250">
             <details>
@@ -172,11 +168,11 @@
 
             <p>This project is an online store for local vendors in Wolaita Sodo, helping them list products and reach customers online.</p>
             <p><strong>Focus:</strong> E-commerce for local businesses.</p>
-            <a class="button" href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+            <a class="btn" href="https://github.com/Aman6815/eCommerce" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
         </article>
 
         <!-- PROJECT 4 -->
-        <article id="temadeg">
+        <article id="temadeg" class="card">
             <h2>4. Temadeg</h2>
             <img class="project-image" src="images/project-temadeg.PNG" alt="Screenshot of the Temadeg tutoring platform home page, where families find verified tutors from KG to Grade 12" width="400" height="250">
             <details>
@@ -199,16 +195,12 @@
 
             <p>Temadeg is a tutoring platform that connects families with verified tutors. Tutors apply and are verified, the organization matches them with families, bills families monthly and pays tutors.</p>
             <p><strong>Focus:</strong> Tutor verification, matching and billing.</p>
-            <a class="button" href="https://github.com/Aman6815/temadeg" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
-            <a class="button" href="https://temadeg.vercel.app" target="_blank" rel="noopener noreferrer">Visit Live Website</a>
+            <a class="btn" href="https://github.com/Aman6815/temadeg" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+            <a class="btn" href="https://temadeg.vercel.app" target="_blank" rel="noopener noreferrer">Visit Live Website</a>
         </article>
 
-        <!-- PROJECT DEMO VIDEO (Lab 11, Part B).
-             controls = play/pause buttons; poster = picture shown before play.
-             The browser plays the FIRST <source> it supports and ignores the rest (mp4, then webm).
-             <track kind="captions"> loads the .vtt captions file; default = captions start switched on.
-             Captions and video need Live Server (http://127.0.0.1), not a double-clicked file:// page. -->
-        <article id="demo">
+        <!-- Demo video -->
+        <article id="demo" class="card">
             <h2>Project Demo</h2>
             <h3>Watch the demo</h3>
             <video controls poster="images/project-demo-poster.jpg" width="640" height="360">
@@ -219,7 +211,6 @@
             </video>
         </article>
 
-        <!-- Lab 8: <aside> = related but secondary content (a short invitation, not one of the projects) -->
         <aside>
             <h2>Interested in working with me?</h2>
             <p>I am open to internships and freelance web projects. <a href="index.html#contact">Get in touch</a> or <a href="files/cv.pdf" download>download my CV</a>.</p>

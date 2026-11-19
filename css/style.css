@@ -11,62 +11,191 @@
 
 /* ---------- Base ---------- */
 html {
-    font-size: 16px;   /* 1rem = 16px everywhere */
+    font-size: 16px;
 }
 
 body {
     background-color: #f4f6f9;
-    color: #22313f;                 /* hex */
-    font-family: 'Poppins', Arial, sans-serif;   /* Arial, sans-serif = fallbacks if Poppins fails to load */
+    color: #22313f;
+    font-family: 'Poppins', Arial, sans-serif;
     font-size: 1rem;
-    line-height: 1.6;               /* 1.6 x the font size: easier to read */
+    line-height: 1.6;
 }
 
-/* ---------- Colours: the same blue in three formats ---------- */
+/* ---------- Headings ---------- */
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 600;
+}
+
 h1 {
-    color: #1f5fa8;                 /* hex */
-}
-
-h2 {
-    color: rgb(31, 95, 168);        /* the same blue in RGB */
-}
-
-h3 {
-    color: hsl(212, 69%, 39%);      /* the same blue in HSL */
-}
-
-mark {
-    background-color: rgba(245, 166, 35, 0.35);   /* see-through orange */
-}
-
-/* ---------- Units: sizes in rem ---------- */
-h1 { font-size: 2.5rem; }   /* 40px */
-h2 { font-size: 1.8rem; }   /* about 29px */
-h3 { font-size: 1.2rem; }   /* about 19px */
-
-/* ---------- Text properties ---------- */
-h1 {
+    color: #1f5fa8;
+    font-size: 2.5rem;
     text-align: center;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
+    color: rgb(31, 95, 168);
+    font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 600;
 }
 
+h3 {
+    color: hsl(212, 69%, 39%);
+    font-size: 1.2rem;
+}
+
+/* ---------- Text ---------- */
 a {
     color: #1f5fa8;
-    text-decoration: none;   /* removes the underline */
+    text-decoration: none;
 }
 
 blockquote {
-    font-size: 1.2em;        /* 1.2 x the size of its parent */
+    font-size: 1.2em;
     font-style: italic;
 }
 
 code, pre {
     font-family: 'Courier New', monospace;
+}
+
+mark {
+    background-color: rgba(245, 166, 35, 0.35);
+}
+
+/* ---------- Link states (order: LoVe HAte) ---------- */
+a:link    { color: #1f5fa8; }
+a:visited { color: #6a3fa0; }
+a:hover   { color: hsl(37, 91%, 45%); text-decoration: underline; }
+a:active  { color: #b03a2e; }
+
+/* links that are buttons keep white text in every state */
+a.btn:link,
+a.btn:visited,
+a.btn:hover,
+a.btn:active {
+    color: white;
+    text-decoration: none;
+}
+
+/* ---------- Components ---------- */
+.tagline {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #5a6b7d;
+    letter-spacing: 1px;
+}
+
+.btn {
+    background-color: #1f5fa8;
+    color: white;
+    font-family: inherit;   /* buttons don't inherit the font by default */
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #5a6b7d;
+}
+
+.card {
+    background-color: white;
+}
+
+.card:hover {
+    background-color: #f0f6ff;
+}
+
+.btn:hover {
+    background-color: #174a84;
+}
+
+.btn-secondary:hover {
+    background-color: #445566;
+}
+
+#contact {
+    background-color: #e8eef6;
+}
+
+/* ---------- Selecting by position ---------- */
+nav a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.card > p {
+    color: #5a6b7d;
+}
+
+h2 + p {
+    font-size: 1.1rem;
+}
+
+legend ~ label {
+    font-weight: 600;
+}
+
+/* ---------- Forms ---------- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    border: 2px solid #1f5fa8;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+}
+
+[class*="btn"] {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- Link icons ---------- */
+a[href^="https"]::after {
+    content: " ↗";
+}
+
+a[href^="mailto"]::before {
+    content: "✉ ";
+}
+
+a[href^="tel"]::before {
+    content: "☎ ";
+}
+
+a[download]::before {
+    content: "⬇ ";
+}
+
+/* ---------- Decorated headings ---------- */
+h2::before {
+    content: "// ";
+    color: hsl(37, 91%, 55%);
+}
+
+h2 + p::first-line {
+    font-weight: 600;
+}
+
+/* ---------- Lists and tables ---------- */
+ol li:first-child {
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #eef2f7;
 }
