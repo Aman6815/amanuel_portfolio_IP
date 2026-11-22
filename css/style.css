@@ -149,10 +149,6 @@ a.btn:active {
     background-color: #445566;
 }
 
-#contact {
-    background-color: #e8eef6;
-}
-
 /* ---------- Selecting by position ---------- */
 nav a {
     font-weight: 600;
@@ -320,4 +316,78 @@ caption {
 /* ---------- Lists ---------- */
 ul ul {
     list-style-type: square;
+}
+
+/* ---------- Header ---------- */
+header {
+    background-image: url("../images/pattern.png"),
+                      linear-gradient(135deg, #1f5fa8, #0b2d55);
+    color: white;
+}
+
+header h1 {
+    color: white;                        /* beats h1 (1 point) */
+}
+
+header .tagline {
+    color: rgba(255, 255, 255, 0.85);    /* 85% white */
+}
+
+header nav a:link,
+header nav a:visited {
+    color: white;                        /* beats a:link (11 points) */
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+header .btn {
+    background-color: hsl(37, 91%, 55%);
+    color: #22313f;
+}
+
+/* anchor buttons: beat a.btn:link (21 points), and keep a hover effect */
+header a.btn:link,
+header a.btn:visited,
+header a.btn:hover,
+header a.btn:active {
+    color: #22313f;
+}
+
+header .btn:hover {
+    background-color: hsl(37, 91%, 45%);
+}
+
+/* ---------- Contact ---------- */
+#contact {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                      url("../images/contact-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ---------- Aside, footer, dialog ---------- */
+aside {
+    background-image: radial-gradient(circle at top left, #fff3dc, white 70%);
+}
+
+footer {
+    background-color: #22313f;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+dialog::backdrop {
+    background-color: rgba(11, 45, 85, 0.6);   /* blue-tinted dimming */
+}
+
+/* ---------- Opacity ---------- */
+.card img {
+    opacity: 0.85;
+}
+
+.card:hover img {
+    opacity: 1;
 }
