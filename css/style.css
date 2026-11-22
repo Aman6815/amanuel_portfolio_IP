@@ -9,6 +9,11 @@
    Light    #f4f6f9   (page background)
 */
 
+/* ---------- Reset ---------- */
+* {
+    box-sizing: border-box;   /* width includes padding and border */
+}
+
 /* ---------- Base ---------- */
 html {
     font-size: 16px;
@@ -20,6 +25,25 @@ body {
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
+    margin: 0;
+}
+
+/* ---------- Layout ---------- */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
 }
 
 /* ---------- Headings ---------- */
@@ -97,6 +121,9 @@ a.btn:active {
     font-size: 1rem;
     border: none;
     cursor: pointer;
+    display: inline-block;   /* so links styled as buttons accept vertical padding */
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem 0.25rem 0 0;
 }
 
 .btn-secondary {
@@ -105,6 +132,9 @@ a.btn:active {
 
 .card {
     background-color: white;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid #d5dde8;
 }
 
 .card:hover {
@@ -128,6 +158,10 @@ nav a {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9rem;
+    display: inline-block;   /* inline links ignore vertical padding */
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border: 2px solid #1f5fa8;
 }
 
 .card > p {
@@ -152,6 +186,7 @@ textarea {
     border: 2px solid #1f5fa8;
     font-family: inherit;
     font-size: 1rem;
+    padding: 0.4rem;
 }
 
 abbr[title] {
@@ -198,4 +233,91 @@ ol li:first-child {
 
 tbody tr:nth-child(even) {
     background-color: #eef2f7;
+}
+
+/* ---------- Display ---------- */
+#logo,
+header img {
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+header img {
+    border: 4px solid white;
+    border-radius: 50%;   /* turns the photo into a circle */
+}
+
+label[for^="lvl"] {
+    display: inline-block;
+    width: 7rem;
+}
+
+/* ---------- Spacing and borders ---------- */
+section,
+aside {
+    margin: 2rem 0;
+    padding: 1.5rem;
+}
+
+aside {
+    border-left: 6px solid hsl(37, 91%, 55%);
+}
+
+.card img,
+video {
+    display: block;
+    max-width: 100%;   /* never wider than the card */
+    height: auto;
+}
+
+.connect-banner {
+    max-width: 100%;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;   /* long code lines scroll instead of widening the page */
+}
+
+textarea {
+    max-width: 100%;
+}
+
+iframe {
+    display: block;
+    max-width: 100%;
+}
+
+fieldset {
+    min-width: 0;   /* fieldsets otherwise refuse to shrink below their widest field */
+    margin: 0 0 1rem;
+    padding: 1rem;
+    border: 2px solid #d5dde8;
+}
+
+/* ---------- Tables ---------- */
+.table-wrap {
+    overflow-x: auto;   /* wide tables scroll inside their box instead of breaking the page */
+}
+
+table {
+    border-collapse: collapse;   /* one line between cells */
+    margin: 1rem 0;
+    background-color: white;
+}
+
+th,
+td {
+    border: 1px solid #c5d0de;
+    padding: 0.5rem 0.75rem;
+}
+
+caption {
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+/* ---------- Lists ---------- */
+ul ul {
+    list-style-type: square;
 }
